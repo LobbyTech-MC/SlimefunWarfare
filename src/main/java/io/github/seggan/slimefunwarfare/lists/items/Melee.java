@@ -19,52 +19,50 @@ public final class Melee {
     public static final SlimefunItemStack ENERGY_BLADE = new SlimefunItemStack(
         "ENERGY_BLADE",
         Material.DIAMOND_SWORD,
-        "&bEnergy Blade",
+        "&b能量刀",
         "",
-        "&7Known in some circles as a \"lightsaber\",",
-        "&7this advanced sword uses pure energy to",
-        "&7slice through living tissue",
+        "&7\"光剑\",",
         "",
-        "&9Uses 5J per hit",
+        "&9每次使用消耗5J",
         LoreBuilder.powerCharged(0, 2500),
         "",
-        "&7When In Main Hand:",
-        "&2 14 Attack Damage",
-        "&2 1.6 Attack Speed"
+        "&7在主手时:",
+        "&2 14 攻击伤害",
+        "&2 1.6 攻击速度"
     );
 
     public static final SlimefunItemStack BATTLE_AXE = new SlimefunItemStack(
         "BATTLE_AXE",
         Material.IRON_AXE,
-        "&6&lBattle Axe",
+        "&6&l战斧",
         "",
-        "&7This axe is designed for battle. No more annoying cooldowns!",
+        "&7用于战斗的斧子，攻击速度很快",
         "",
-        "&7When In Main Hand:",
-        "&2 9 Attack Damage",
-        "&2 1.6 Attack Speed"
+        "&7在主手时:",
+        "&2 9 攻击伤害",
+        "&2 1.6 攻击速度"
     );
 
     public static final SlimefunItemStack OSMIUM_SWORD = new SlimefunItemStack(
         "OSMIUM_SWORD",
         Material.IRON_SWORD,
-        "&6Osmium Sword",
+        "&6锇剑",
         "",
-        "&7Heavy in the hand",
+        "&7非常的沉重",
         "",
-        "&7When In Main Hand:",
-        "&2 10 Attack Damage",
-        "&2 1.6 Attack Speed"
+        "&7在主手时:",
+        "&2 10 攻击伤害",
+        "&2 1.6 攻击速度"
     );
 
     public static final SlimefunItemStack DUMMY = new SlimefunItemStack(
         "DUMMY",
         Material.HUSK_SPAWN_EGG,
-        "&fDummy Spawn Egg",
+        "&f假人",
         "",
-        "&7Right click to spawn a dummy; if you hit him",
-        "&7he'll tell you how much damage you dealt.",
-        "&7Right click on him to destroy him"
+        "&7右键生成一个假人",
+        "&7当你攻击它时 它会告诉你多少伤害",
+        "&7右键单击它可以装饰它"
     );
 
     static {

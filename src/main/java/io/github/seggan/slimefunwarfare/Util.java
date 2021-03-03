@@ -12,7 +12,7 @@ public final class Util {
     @NonNull
     public static Location deserializeLocation(@NonNull String s) {
         if (s == null || s.trim().equals("")) {
-            throw new IllegalArgumentException("Invalid location deserialization parameter, got " + s);
+            throw new IllegalArgumentException("无效的位置反序列化参数，得到了 " + s);
         }
 
         String[] parts = s.split(":");
@@ -25,7 +25,7 @@ public final class Util {
             return new Location(w, x, y, z);
         }
 
-        throw new IllegalArgumentException("Invalid location deserialization parameter, got " + s);
+        throw new IllegalArgumentException("无效的位置反序列化参数，得到了 " + s);
     }
 
     @NonNull

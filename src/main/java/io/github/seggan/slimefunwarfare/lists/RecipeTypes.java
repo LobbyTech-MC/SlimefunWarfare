@@ -15,8 +15,8 @@ public final class RecipeTypes {
         new NamespacedKey(SlimefunWarfare.getInstance(), "space"),
         new CustomItem(
             Material.NETHER_STAR,
-            "&fSpace",
-            "&7Find this material in outer space"
+            "&f空间碎片",
+            "&7可以在外太空找到这种材料"
         )
     );
 

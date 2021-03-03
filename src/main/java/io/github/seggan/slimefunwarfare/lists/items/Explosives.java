@@ -12,112 +12,112 @@ public final class Explosives {
     public static final SlimefunItemStack PYRO_POWDER = new SlimefunItemStack(
         "PYRO_POWDER",
         Material.REDSTONE,
-        "&4Pyro Powder",
+        "&4火药粉",
         "",
-        "&7A very explosive substance indeed"
+        "&7确实是一种极易爆炸的物质"
     );
 
     public static final SlimefunItemStack LIQUID_AIR = new SlimefunItemStack(
         "LIQUID_AIR",
         HeadTexture.TIN_CAN,
-        "&fLiquid Air",
+        "&f液化空气",
         "",
-        "&7Don't touch!"
+        "&7不要碰!"
     );
 
     public static final SlimefunItemStack LIQUID_NITROGEN = new SlimefunItemStack(
         "LIQUID_NITROGEN",
         HeadTexture.TIN_CAN,
-        "&fLiquid Nitrogen",
+        "&f液氮",
         "",
-        "&7Ice cream anyone?"
+        "&7冰冻任何人?"
     );
 
     public static final SlimefunItemStack PURIFIED_LIQUID_NITROGEN = new SlimefunItemStack(
         "PURIFIED_LIQUID_NITROGEN",
         HeadTexture.TIN_CAN,
-        "&fPurified Liquid Nitrogen",
+        "&f纯化液氮",
         "",
-        "&7As pure as can be"
+        "&7尽可能纯净"
     );
 
     public static final SlimefunItemStack LIQUID_OXYGEN = new SlimefunItemStack(
         "LIQUID_OXYGEN",
         HeadTexture.TIN_CAN,
-        "&fLiquid Oxygen",
+        "&f液氧",
         "",
-        "&7Refreshing"
+        "&7提神醒脑"
     );
 
     public static final SlimefunItemStack FLOX = new SlimefunItemStack(
         "FLOX",
         HeadTexture.TIN_CAN,
-        "&fFLOX",
+        "&FLOX",
         "",
-        "&7Fuel + liquid oxygen. Right click to go to space",
-        "&cMAKE SURE TO DOUBLE TAP SPACE BAR WHEN",
-        "&cTELEPORTED TO KEEP FROM FALLING"
+        "&7汽油 + 液氧 右键单击进入太空",
+        "&c确保双点击空格键",
+        "&c传送到天上"
     );
 
     public static final SlimefunItemStack THIOACETONE = new SlimefunItemStack(
         "THIOACETONE",
         Material.BROWN_DYE,
-        "&6Thioacetone",
+        "&6硫丙酮",
         "",
-        "&7Very smelly indeed"
+        "&7确实很臭"
     );
 
     public static final SlimefunItemStack NITROGEN_TRIIODIDE = new SlimefunItemStack(
         "NITROGEN_TRIIODIDE",
         Material.PURPLE_DYE,
-        "&5Nitrogen Triiodide",
+        "&5三碘化氮",
         "",
-        "&7A material for grenades"
+        "&7手榴弹的一种材料"
     );
 
     public static final SlimefunItemStack AZIDOAZIDE_AZIDE = new SlimefunItemStack(
         "AZIDOAZIDE_AZIDE",
         Material.SUGAR,
-        "&eAzidoazide Azide",
+        "&e叠氮叠氮化物",
         "",
-        "&7A material for grenades"
+        "&7手榴弹的一种材料"
     );
 
     public static final SlimefunItemStack ARSENIC = new SlimefunItemStack(
         "ARSENIC",
         Material.GUNPOWDER,
-        "&7Arsenic",
+        "&7砷",
         "",
-        "&7A material for grenades"
+        "&7手榴弹的一种材料"
     );
 
     public static final SlimefunItemStack ENRICHED_URANIUM = new SlimefunItemStack(
         "ENRICHED_URANIUM",
         HeadTexture.BOOSTED_URANIUM,
-        "&aEnriched Uranium"
+        "&a浓缩铀"
     );
 
     public static final SlimefunItemStack EMPTY_GRENADE = new SlimefunItemStack(
         "GRENADE",
         Material.SNOWBALL,
-        "&fChemical Grenade",
+        "&f化学手榴弹",
         "",
-        "&7Contents: none"
+        "&7包含: 无"
     );
 
     public static final SlimefunItemStack REINFORCED_CONCRETE = new SlimefunItemStack(
         "REINFORCED_CONCRETE",
         Material.GRAY_CONCRETE,
-        "&7Reinforced Concrete",
+        "&7钢筋混凝土",
         "",
-        "&7A blast-resistant (not blastproof) concrete"
+        "&7能够抵抗几次爆炸"
     );
 
     public static final SlimefunItemStack NUCLEAR_BOMB = new SlimefunItemStack(
         "NUCLEAR_BOMB",
         Material.TNT,
-        "&7Nuclear Bomb",
+        "&7核弹",
         "",
-        "&7KABOOM!"
+        "&7核爆！"
     );
 }
