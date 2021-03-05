@@ -12,6 +12,7 @@ import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
 import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
 import me.mrCookieSlime.Slimefun.cscorelib2.inventory.ItemUtils;
 import org.bukkit.ChatColor;
+import org.bukkit.configuration.MemorySection;
 import org.bukkit.entity.LlamaSpit;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -134,4 +135,14 @@ public class Gun extends SlimefunItem implements DamageableItem {
     public boolean isDamageable() {
         return true;
     }
+
+	public HashMap<UUID, Long> getLAST_USES() {
+		// TODO Auto-generated method stub
+		return LAST_USES;
+	}
+
+	public int getCooldown() {
+		// TODO Auto-generated method stub
+		return cooldown;
+	}
 }

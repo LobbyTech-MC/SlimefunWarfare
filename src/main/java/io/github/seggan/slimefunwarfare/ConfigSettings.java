@@ -35,4 +35,9 @@ public class ConfigSettings {
         meteorsPerChunk = config.getInt("space.meteors-per-chunk");
         segganessonChance = config.getInt("space.segganesson-chance");
     }
+
+	public boolean isAutoshoot() {
+		// TODO Auto-generated method stub
+		return autoshoot;
+	}
 }

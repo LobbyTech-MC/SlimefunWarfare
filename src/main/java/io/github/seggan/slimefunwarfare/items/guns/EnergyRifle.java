@@ -7,12 +7,16 @@ import io.github.seggan.slimefunwarfare.lists.items.Items;
 import io.github.thebusybiscuit.slimefun4.core.attributes.Rechargeable;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
+
+import java.util.concurrent.Callable;
+
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.ShulkerBullet;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.util.Vector;
+import org.jetbrains.annotations.NotNull;
 
 public class EnergyRifle extends Gun implements Rechargeable {
 
@@ -68,7 +72,8 @@ public class EnergyRifle extends Gun implements Rechargeable {
         bullet.setVelocity(v);
     }
 
-    @Override
+
+	@Override
     public float getMaxItemCharge(ItemStack itemStack) {
         return 2500;
     }

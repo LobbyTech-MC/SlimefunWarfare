@@ -23,4 +23,9 @@ public class Bullet extends SlimefunItem {
         this.multiplier = multiplier;
         this.isFire = isFire;
     }
+
+	public double getMultiplier() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
