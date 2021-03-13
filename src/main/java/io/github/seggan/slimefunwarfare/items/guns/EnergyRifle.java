@@ -1,5 +1,12 @@
 package io.github.seggan.slimefunwarfare.items.guns;
 
+import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
+import org.bukkit.entity.ShulkerBullet;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.metadata.FixedMetadataValue;
+import org.bukkit.util.Vector;
+
 import io.github.seggan.slimefunwarfare.SlimefunWarfare;
 import io.github.seggan.slimefunwarfare.Util;
 import io.github.seggan.slimefunwarfare.lists.items.Guns;
@@ -7,16 +14,6 @@ import io.github.seggan.slimefunwarfare.lists.items.Items;
 import io.github.thebusybiscuit.slimefun4.core.attributes.Rechargeable;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
-
-import java.util.concurrent.Callable;
-
-import org.bukkit.ChatColor;
-import org.bukkit.entity.Player;
-import org.bukkit.entity.ShulkerBullet;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.metadata.FixedMetadataValue;
-import org.bukkit.util.Vector;
-import org.jetbrains.annotations.NotNull;
 
 public class EnergyRifle extends Gun implements Rechargeable {
 
@@ -40,7 +37,7 @@ public class EnergyRifle extends Gun implements Rechargeable {
         long currentTime = System.currentTimeMillis();
         if (lastUse != null) {
             if ((currentTime - lastUse) < this.getCooldown()) {
-                p.sendMessage(ChatColor.RED + "The gun is still reloading!");
+                p.sendMessage(ChatColor.RED + "正在装弹！!");
                 return;
             }
         }
@@ -71,7 +68,6 @@ public class EnergyRifle extends Gun implements Rechargeable {
         ));
         bullet.setVelocity(v);
     }
-
 
 	@Override
     public float getMaxItemCharge(ItemStack itemStack) {

@@ -1,5 +1,16 @@
 package io.github.seggan.slimefunwarfare.items.guns;
 
+import java.util.HashMap;
+import java.util.UUID;
+
+import org.bukkit.ChatColor;
+import org.bukkit.entity.LlamaSpit;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.PlayerInventory;
+import org.bukkit.metadata.FixedMetadataValue;
+import org.bukkit.util.Vector;
+
 import io.github.seggan.slimefunwarfare.SlimefunWarfare;
 import io.github.seggan.slimefunwarfare.Util;
 import io.github.seggan.slimefunwarfare.items.Bullet;
@@ -11,17 +22,6 @@ import me.mrCookieSlime.Slimefun.Lists.RecipeType;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
 import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
 import me.mrCookieSlime.Slimefun.cscorelib2.inventory.ItemUtils;
-import org.bukkit.ChatColor;
-import org.bukkit.configuration.MemorySection;
-import org.bukkit.entity.LlamaSpit;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.PlayerInventory;
-import org.bukkit.metadata.FixedMetadataValue;
-import org.bukkit.util.Vector;
-
-import java.util.HashMap;
-import java.util.UUID;
 
 @Getter
 public class Gun extends SlimefunItem implements DamageableItem {
@@ -137,12 +137,18 @@ public class Gun extends SlimefunItem implements DamageableItem {
     }
 
 	public HashMap<UUID, Long> getLAST_USES() {
-		// TODO Auto-generated method stub
 		return LAST_USES;
 	}
 
 	public int getCooldown() {
-		// TODO Auto-generated method stub
 		return cooldown;
+	}
+	
+	public int getRange() {
+		return range;
+	}
+	
+	public int getDamageDealt() {
+		return damageDealt;
 	}
 }

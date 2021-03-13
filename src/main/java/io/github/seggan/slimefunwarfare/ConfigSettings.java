@@ -26,10 +26,10 @@ public class ConfigSettings {
     public void loadConfig() {
         FileConfiguration config = plugin.getConfig();
 
-        concreteExplodePercent = config.getInt("explosions.concrete-explode-chance");
+        setConcreteExplodePercent(config.getInt("explosions.concrete-explode-chance"));
         autoshoot = config.getBoolean("guns.autoshoot");
-        minRangeOn = config.getBoolean("guns.min-range-on");
-        useBulletsFromInv = config.getBoolean("guns.use-bullets-from-inv");
+        setMinRangeOn(config.getBoolean("guns.min-range-on"));
+        setUseBulletsFromInv(config.getBoolean("guns.use-bullets-from-inv"));
 
         meteorSpawnRate = config.getInt("space.meteor-spawn-rate");
         meteorsPerChunk = config.getInt("space.meteors-per-chunk");
@@ -37,7 +37,42 @@ public class ConfigSettings {
     }
 
 	public boolean isAutoshoot() {
-		// TODO Auto-generated method stub
 		return autoshoot;
+	}
+
+	public int getMeteorsPerChunk() {
+		return meteorsPerChunk;
+	}
+
+	public double getMeteorSpawnRate() {
+		return meteorSpawnRate;
+	}
+
+	public double getSegganessonChance() {
+		return segganessonChance;
+	}
+
+	public int getConcreteExplodePercent() {
+		return concreteExplodePercent;
+	}
+
+	public void setConcreteExplodePercent(int concreteExplodePercent) {
+		this.concreteExplodePercent = concreteExplodePercent;
+	}
+
+	public boolean isMinRangeOn() {
+		return minRangeOn;
+	}
+
+	public void setMinRangeOn(boolean minRangeOn) {
+		this.minRangeOn = minRangeOn;
+	}
+
+	public boolean isUseBulletsFromInv() {
+		return useBulletsFromInv;
+	}
+
+	public void setUseBulletsFromInv(boolean useBulletsFromInv) {
+		this.useBulletsFromInv = useBulletsFromInv;
 	}
 }

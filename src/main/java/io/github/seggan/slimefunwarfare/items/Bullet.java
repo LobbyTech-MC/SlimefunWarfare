@@ -25,7 +25,10 @@ public class Bullet extends SlimefunItem {
     }
 
 	public double getMultiplier() {
-		// TODO Auto-generated method stub
-		return 0;
+		return multiplier;
+	}
+
+	public boolean isFire() {
+		return isFire;
 	}
 }
