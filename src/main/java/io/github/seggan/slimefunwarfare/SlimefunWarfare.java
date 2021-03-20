@@ -21,10 +21,7 @@ import io.github.seggan.slimefunwarfare.spacegenerators.SpaceGenerator;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunPlugin;
 import lombok.Getter;
-import me.mrCookieSlime.Slimefun.Lists.RecipeType;
-import me.mrCookieSlime.Slimefun.Objects.Category;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
-import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
 import me.mrCookieSlime.Slimefun.cscorelib2.updater.GitHubBuildsUpdater;
 
 public class SlimefunWarfare extends JavaPlugin implements SlimefunAddon {
@@ -34,10 +31,6 @@ public class SlimefunWarfare extends JavaPlugin implements SlimefunAddon {
 
     @Getter
     private static ConfigSettings configSettings = null;
-
-    public SlimefunWarfare(Category resources, SlimefunItemStack item, RecipeType space, Object object) {
-		// TODO Auto-generated constructor stub
-	}
 
 	@Override
     public void onEnable() {
