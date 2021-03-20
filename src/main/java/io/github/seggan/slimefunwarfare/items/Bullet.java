@@ -23,11 +23,11 @@ public class Bullet extends SlimefunItem {
         this.multiplier = multiplier;
         this.isFire = isFire;
     }
-
-	public double getMultiplier() {
+    
+    public double getMultiplier() {
 		return multiplier;
 	}
-
+    
 	public boolean isFire() {
 		return isFire;
 	}

@@ -63,8 +63,8 @@ public abstract class ABetterExplosive extends SlimefunItem {
     public abstract int getFuseTicks();
 
     public abstract boolean setFire();
-
-	public Map<String, String> getMetadata() {
+    
+    public Map<String, String> getMetadata() {
 		return metadata;
 	}
 }
