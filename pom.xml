@@ -90,7 +90,11 @@
         <dependency>
             <groupId>com.github.TheBusyBiscuit</groupId>
             <artifactId>Slimefun4</artifactId>
+<<<<<<< Updated upstream
             <version>RC-21</version>
+=======
+            <version></version>
+>>>>>>> Stashed changes
             <scope>provided</scope>
         </dependency>
 

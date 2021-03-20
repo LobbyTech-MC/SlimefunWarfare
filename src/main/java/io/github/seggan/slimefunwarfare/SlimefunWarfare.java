@@ -1,5 +1,16 @@
 package io.github.seggan.slimefunwarfare;
 
+import java.util.UUID;
+import java.util.logging.Level;
+
+import org.bstats.bukkit.Metrics;
+import org.bukkit.Bukkit;
+import org.bukkit.GameRule;
+import org.bukkit.World;
+import org.bukkit.WorldCreator;
+import org.bukkit.entity.Player;
+import org.bukkit.plugin.java.JavaPlugin;
+
 import io.github.seggan.slimefunwarfare.items.guns.Gun;
 import io.github.seggan.slimefunwarfare.listeners.BetterExplosiveListener;
 import io.github.seggan.slimefunwarfare.listeners.BulletListener;
@@ -14,6 +25,7 @@ import io.github.thebusybiscuit.slimefun4.implementation.SlimefunPlugin;
 import lombok.Getter;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
 import me.mrCookieSlime.Slimefun.cscorelib2.updater.GitHubBuildsUpdater;
+<<<<<<< Updated upstream
 import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.GameRule;
@@ -22,6 +34,8 @@ import org.bukkit.WorldCreator;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import java.util.UUID;
+=======
+>>>>>>> Stashed changes
 
 public class SlimefunWarfare extends JavaPlugin implements SlimefunAddon {
 
