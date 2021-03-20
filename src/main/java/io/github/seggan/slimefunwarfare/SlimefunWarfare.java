@@ -1,9 +1,7 @@
 package io.github.seggan.slimefunwarfare;
 
 import java.util.UUID;
-import java.util.logging.Level;
 
-import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.GameRule;
 import org.bukkit.World;
@@ -23,19 +21,11 @@ import io.github.seggan.slimefunwarfare.spacegenerators.SpaceGenerator;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunPlugin;
 import lombok.Getter;
+import me.mrCookieSlime.Slimefun.Lists.RecipeType;
+import me.mrCookieSlime.Slimefun.Objects.Category;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
+import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
 import me.mrCookieSlime.Slimefun.cscorelib2.updater.GitHubBuildsUpdater;
-<<<<<<< Updated upstream
-import org.bstats.bukkit.Metrics;
-import org.bukkit.Bukkit;
-import org.bukkit.GameRule;
-import org.bukkit.World;
-import org.bukkit.WorldCreator;
-import org.bukkit.entity.Player;
-import org.bukkit.plugin.java.JavaPlugin;
-import java.util.UUID;
-=======
->>>>>>> Stashed changes
 
 public class SlimefunWarfare extends JavaPlugin implements SlimefunAddon {
 
@@ -45,7 +35,11 @@ public class SlimefunWarfare extends JavaPlugin implements SlimefunAddon {
     @Getter
     private static ConfigSettings configSettings = null;
 
-    @Override
+    public SlimefunWarfare(Category resources, SlimefunItemStack item, RecipeType space, Object object) {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
     public void onEnable() {
         saveDefaultConfig();
 
@@ -58,8 +52,6 @@ public class SlimefunWarfare extends JavaPlugin implements SlimefunAddon {
         getServer().getPluginManager().registerEvents(new HitListener(), this);
 
         instance = this;
-
-        new Metrics(this, 9227);
 
         if (getConfig().getBoolean("auto-updates") && getDescription().getVersion().startsWith("DEV - ")) {
             new GitHubBuildsUpdater(this, getFile(), "Seggan/SlimefunWarfare/master").start();
@@ -132,11 +124,13 @@ public class SlimefunWarfare extends JavaPlugin implements SlimefunAddon {
         return null;
     }
 
-    public static SlimefunWarfare getInstance() {
+	public static SlimefunWarfare getInstance() {
+		// TODO Auto-generated method stub
 		return instance;
 	}
 
 	public static ConfigSettings getConfigSettings() {
+		// TODO Auto-generated method stub
 		return configSettings;
 	}
 }

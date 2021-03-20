@@ -1,8 +1,5 @@
 package io.github.seggan.slimefunwarfare;
 
-import org.bukkit.Material;
-import org.bukkit.inventory.ItemStack;
-
 import io.github.seggan.slimefunwarfare.georesources.Arsenic;
 import io.github.seggan.slimefunwarfare.items.Bullet;
 import io.github.seggan.slimefunwarfare.items.Dummy;
@@ -29,6 +26,8 @@ import io.github.thebusybiscuit.slimefun4.implementation.items.blocks.Unplaceabl
 import me.mrCookieSlime.Slimefun.Lists.RecipeType;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
 import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
+import org.bukkit.Material;
+import org.bukkit.inventory.ItemStack;
 
 public final class Setup {
 

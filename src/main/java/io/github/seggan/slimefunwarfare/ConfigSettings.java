@@ -1,8 +1,9 @@
 package io.github.seggan.slimefunwarfare;
 
+import org.bukkit.configuration.file.FileConfiguration;
+
 import lombok.AccessLevel;
 import lombok.Getter;
-import org.bukkit.configuration.file.FileConfiguration;
 
 @Getter
 public class ConfigSettings {
@@ -37,7 +38,6 @@ public class ConfigSettings {
     }
 
 	public boolean isAutoshoot() {
-		// TODO Auto-generated method stub
 		return autoshoot;
 	}
 	
