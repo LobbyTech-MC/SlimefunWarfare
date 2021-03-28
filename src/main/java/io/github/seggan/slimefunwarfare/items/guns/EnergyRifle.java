@@ -1,6 +1,5 @@
 package io.github.seggan.slimefunwarfare.items.guns;
 
-import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.ShulkerBullet;
 import org.bukkit.inventory.ItemStack;
@@ -13,11 +12,6 @@ import io.github.seggan.slimefunwarfare.lists.items.Guns;
 import io.github.seggan.slimefunwarfare.lists.items.Items;
 import io.github.thebusybiscuit.slimefun4.core.attributes.Rechargeable;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
-import org.bukkit.entity.Player;
-import org.bukkit.entity.ShulkerBullet;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.metadata.FixedMetadataValue;
-import org.bukkit.util.Vector;
 
 public class EnergyRifle extends Gun implements Rechargeable {
 

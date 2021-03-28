@@ -57,4 +57,8 @@ public class NuclearBomb extends SlimefunItem {
             }
         };
     }
+
+	public Map<String, String> getMetadata() {
+		return metadata;
+	}
 }

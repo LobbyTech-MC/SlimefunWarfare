@@ -1,5 +1,17 @@
 package io.github.seggan.slimefunwarfare.items.guns;
 
+import org.bukkit.ChatColor;
+import org.bukkit.NamespacedKey;
+import org.bukkit.entity.LlamaSpit;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.PlayerInventory;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.metadata.FixedMetadataValue;
+import org.bukkit.persistence.PersistentDataContainer;
+import org.bukkit.persistence.PersistentDataType;
+import org.bukkit.util.Vector;
+
 import io.github.mooy1.infinitylib.core.ConfigUtils;
 import io.github.mooy1.infinitylib.core.PluginUtils;
 import io.github.seggan.slimefunwarfare.SlimefunWarfare;
@@ -13,17 +25,6 @@ import me.mrCookieSlime.Slimefun.Lists.RecipeType;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
 import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
 import me.mrCookieSlime.Slimefun.cscorelib2.inventory.ItemUtils;
-import org.bukkit.ChatColor;
-import org.bukkit.NamespacedKey;
-import org.bukkit.entity.LlamaSpit;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.PlayerInventory;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.metadata.FixedMetadataValue;
-import org.bukkit.persistence.PersistentDataContainer;
-import org.bukkit.persistence.PersistentDataType;
-import org.bukkit.util.Vector;
 
 @Getter
 public class Gun extends SlimefunItem implements DamageableItem {
@@ -137,8 +138,8 @@ public class Gun extends SlimefunItem implements DamageableItem {
         return true;
     }
     
-    public HashMap<UUID, Long> getLAST_USES() {
-		return LAST_USES;
+    public NamespacedKey getLAST_USES() {
+		return LAST_USE;
 	}
     
 	public int getCooldown() {

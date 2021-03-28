@@ -116,8 +116,8 @@ public class SlimefunWarfare extends JavaPlugin implements SlimefunAddon {
 		return instance;
 	}
 
-	public static ConfigSettings getConfigSettings() {
+	public static ConfigUtils getConfigSettings() {
 		// TODO Auto-generated method stub
-		return configSettings;
+		return getConfigSettings();
 	}
 }
