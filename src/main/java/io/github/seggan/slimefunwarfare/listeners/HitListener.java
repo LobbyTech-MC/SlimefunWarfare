@@ -1,13 +1,5 @@
 package io.github.seggan.slimefunwarfare.listeners;
 
-import io.github.seggan.slimefunwarfare.items.Dummy;
-import io.github.seggan.slimefunwarfare.items.EnergyBlade;
-import io.github.seggan.slimefunwarfare.lists.items.Melee;
-import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
-import me.mrCookieSlime.Slimefun.cscorelib2.chat.ChatColors;
-import me.mrCookieSlime.Slimefun.cscorelib2.data.PersistentDataAPI;
-import net.md_5.bungee.api.ChatMessageType;
-import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -17,9 +9,17 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.inventory.ItemStack;
 
+import io.github.seggan.slimefunwarfare.items.Dummy;
+import io.github.seggan.slimefunwarfare.items.EnergyBlade;
+import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
+import me.mrCookieSlime.Slimefun.cscorelib2.chat.ChatColors;
+import me.mrCookieSlime.Slimefun.cscorelib2.data.PersistentDataAPI;
+import net.md_5.bungee.api.ChatMessageType;
+import net.md_5.bungee.api.chat.TextComponent;
+
 public class HitListener implements Listener {
 
-    @EventHandler(priority = EventPriority.NORMAL)
+	@EventHandler(priority = EventPriority.NORMAL)
     public void onEnergyBladeHit(EntityDamageByEntityEvent e) {
         Entity entity = e.getDamager();
         if (!(entity instanceof Player)) return;
@@ -48,7 +48,7 @@ public class HitListener implements Listener {
             e.setCancelled(true);
             Player p = (Player) e.getDamager();
             p.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(ChatColors.color(
-                String.format("&cYou have dealt %d half-hearts of damage", Math.round(e.getFinalDamage()))
+                String.format("&c你对 %d 造成了一半伤害", Math.round(e.getFinalDamage()))
             )));
         }
     }
@@ -58,7 +58,6 @@ public class HitListener implements Listener {
         Entity entity = e.getRightClicked();
         if (PersistentDataAPI.getString(entity, Dummy.KEY) != null) {
             entity.remove();
-            entity.getWorld().dropItemNaturally(entity.getLocation(), Melee.DUMMY.clone());
         }
     }
 
