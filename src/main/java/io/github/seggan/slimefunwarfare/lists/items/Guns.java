@@ -14,11 +14,11 @@ public final class Guns {
         "&7手枪",
         "",
         "&7短程枪",
-        "&7装弹较快",
+        "&7换弹较快"",
         "&7适用于近距离战斗",
-        "&c范围: 7",
-        "&c伤害: 2心",
-        "&c冷却时间: 0.75s"
+        "&c范围: 10",
+        "&c伤害: 3 颗心",
+        "&c冷却时间: 0.5 秒"
     );
 
     public static final SlimefunItemStack REVOLVER = new SlimefunItemStack(
@@ -31,7 +31,7 @@ public final class Guns {
         "&7适用于近距离战斗",
         "&c范围: 10",
         "&c伤害: 3心",
-        "&c冷却时间: 0.5s"
+        "&c冷却时间: 0.3 秒"
     );
 
     public static final SlimefunItemStack MACHINE_GUN = new SlimefunItemStack(
@@ -43,7 +43,7 @@ public final class Guns {
         "&c范围: 30",
         "&c最小范围: 5",
         "&c伤害: 3心",
-        "&c冷却时间: 0.15s"
+        "&c冷却时间: 0.15 秒"
     );
 
     public static final SlimefunItemStack MINIGUN = new SlimefunItemStack(
@@ -68,7 +68,7 @@ public final class Guns {
         "&c范围: 40",
         "&c最小范围: 5",
         "&c伤害: 4心",
-        "&c冷却时间: 0.75s"
+        "&c冷却时间: 0.75 秒"
     );
 
     public static final SlimefunItemStack SHOTGUN = new SlimefunItemStack(
@@ -81,7 +81,7 @@ public final class Guns {
         "&c范围: 25",
         "&c最小范围: 5",
         "&c伤害: 6.5心",
-        "&c冷却时间: 1.25s"
+        "&c冷却时间: 1.25 秒"
     );
 
     public static final SlimefunItemStack ASSAULT_RIFLE = new SlimefunItemStack(
@@ -95,7 +95,7 @@ public final class Guns {
         "&c范围: 50",
         "&c最小范围: 3",
         "&c伤害: 6.5心",
-        "&c冷却时间: 0.3s"
+        "&c冷却时间: 0.3 秒"
     );
 
     public static final SlimefunItemStack SNIPER = new SlimefunItemStack(
@@ -108,7 +108,7 @@ public final class Guns {
         "&c范围: 130",
         "&c最小范围: 50",
         "&c伤害: 11心",
-        "&c冷却时间: 8s"
+        "&c冷却时间: 8 秒"
     );
 
     public static final SlimefunItemStack ENERGY_RIFLE = new SlimefunItemStack(

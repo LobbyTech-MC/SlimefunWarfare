@@ -13,6 +13,8 @@ import io.github.seggan.slimefunwarfare.lists.items.Items;
 import io.github.thebusybiscuit.slimefun4.core.attributes.Rechargeable;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 
+import javax.annotation.Nonnull;
+
 public class EnergyRifle extends Gun implements Rechargeable {
 
     public EnergyRifle() {
@@ -24,7 +26,7 @@ public class EnergyRifle extends Gun implements Rechargeable {
     }
 
     @Override
-    public void shoot(Player p, ItemStack gun) {
+    public void shoot(@Nonnull Player p, @Nonnull ItemStack gun) {
         if (getItemCharge(gun) < 5) {
             return;
         } else {
