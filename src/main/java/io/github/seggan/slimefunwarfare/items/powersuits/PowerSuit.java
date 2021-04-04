@@ -93,4 +93,9 @@ public class PowerSuit extends SlimefunItem implements ProtectiveArmor, Recharge
     public float getMaxItemCharge(ItemStack item) {
         return 1000;
     }
+
+	public ArmorPiece getType() {
+		// TODO Auto-generated method stub
+		return type;
+	}
 }

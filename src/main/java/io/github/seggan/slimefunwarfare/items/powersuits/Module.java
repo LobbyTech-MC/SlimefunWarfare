@@ -127,9 +127,9 @@ public enum Module {
         }
         loreList.add("");
         if (effect != null) {
-            loreList.add(String.format("&7Effect: &a%s %d", WordUtils.capitalizeFully(effect.getName().replace('_', ' ')), level + 1));
+            loreList.add(String.format("&7效果: &a%s %d", WordUtils.capitalizeFully(effect.getName().replace('_', ' ')), level + 1));
         }
-        loreList.add(allowed == null ? "&7Install anywhere" : "&7Install on " + allowed.toString());
+        loreList.add(allowed == null ? "&7安装在任意位置" : "&7安装在 " + allowed.toString());
         loreList.add(String.format("&eUses %dJ", power));
 
         this.item = new SlimefunItemStack(
@@ -166,5 +166,29 @@ public enum Module {
 
             this.module = module;
         }
+
+		public Module getModule() {
+			return module;
+		}
     }
+
+	public float getPower() {
+		return power;
+	}
+
+	public ArmorPiece getAllowed() {
+		return allowed;
+	}
+
+	public SlimefunItemStack getItem() {
+		return item;
+	}
+
+	public int getID() {
+		return id;
+	}
+
+	public PotionEffect getEffect() {
+		return effect;
+	}
 }

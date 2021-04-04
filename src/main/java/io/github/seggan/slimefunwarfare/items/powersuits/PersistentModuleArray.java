@@ -27,7 +27,7 @@ public class PersistentModuleArray implements PersistentDataType<int[], Module[]
         int[] result = new int[complex.length];
 
         for (int i = 0; i < complex.length; i++) {
-            result[i] = complex[i].getId();
+            result[i] = complex[i].getID();
         }
 
         return result;

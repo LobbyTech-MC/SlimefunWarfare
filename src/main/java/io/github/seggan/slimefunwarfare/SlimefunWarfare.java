@@ -37,6 +37,7 @@ import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.potion.PotionEffect;
 
@@ -49,6 +50,8 @@ public class SlimefunWarfare extends JavaPlugin implements SlimefunAddon, Listen
 
     @Getter
     private static SlimefunWarfare instance = null;
+    
+    private static final Set<UUID> flying = new HashSet<>();
 
     public void onEnable() {
         instance = this;
@@ -221,6 +224,8 @@ public class SlimefunWarfare extends JavaPlugin implements SlimefunAddon, Listen
                 case AUXILIARY_GENERATOR:
                     suit.addItemCharge(stack, module.getPower());
                     break;
+			default:
+				break;
             }
         }
 
@@ -231,4 +236,9 @@ public class SlimefunWarfare extends JavaPlugin implements SlimefunAddon, Listen
 
         suit.addItemCharge(stack, 5);
     }
+
+	public static Plugin getInstance() {
+		// TODO Auto-generated method stub
+		return instance;
+	}
 }
