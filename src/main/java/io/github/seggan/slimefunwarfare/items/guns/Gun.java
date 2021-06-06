@@ -18,8 +18,6 @@ import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.util.Vector;
 
-import io.github.mooy1.infinitylib.core.ConfigUtils;
-import io.github.mooy1.infinitylib.core.PluginUtils;
 import io.github.seggan.slimefunwarfare.SlimefunWarfare;
 import io.github.seggan.slimefunwarfare.Util;
 import io.github.seggan.slimefunwarfare.items.Bullet;
