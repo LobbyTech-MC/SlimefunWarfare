@@ -15,7 +15,7 @@
 
     <build>
         <finalName>${project.name} v${project.version}</finalName>
-        <defaultGoal>clean package -T 2</defaultGoal>
+        <defaultGoal>clean package -T 2.0C</defaultGoal>
 
         <resources>
             <resource>
@@ -91,21 +91,21 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.16.5-R0.1-SNAPSHOT</version>
+            <version>1.17.1-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
-            <groupId>com.github.TheBusyBiscuit</groupId>
+            <groupId>io.github.TheBusyBiscuit</groupId>
             <artifactId>Slimefun4</artifactId>
-            <version>RC-22</version>
+            <version>RC-28</version>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
-            <groupId>io.github.mooy1</groupId>
+            <groupId>io.github.Mooy1</groupId>
             <artifactId>InfinityLib</artifactId>
-            <version>71cff3336d</version>
+            <version>1.3.2</version>
             <scope>compile</scope>
         </dependency>
 

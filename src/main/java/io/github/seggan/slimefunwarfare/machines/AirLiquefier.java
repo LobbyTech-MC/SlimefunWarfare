@@ -1,19 +1,20 @@
 package io.github.seggan.slimefunwarfare.machines;
 
 import io.github.seggan.slimefunwarfare.lists.Categories;
-import io.github.seggan.slimefunwarfare.lists.items.Explosives;
-import io.github.seggan.slimefunwarfare.lists.items.Items;
+import io.github.seggan.slimefunwarfare.lists.Items;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.attributes.RecipeDisplayItem;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
-import me.mrCookieSlime.Slimefun.Lists.RecipeType;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.AContainer;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
+import javax.annotation.Nonnull;
+
 public class AirLiquefier extends AContainer implements RecipeDisplayItem {
 
     public AirLiquefier() {
-        super(Categories.GENERAL, Items.AIR_LIQUEFIER, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[]{
+        super(Categories.MACHINES, Items.AIR_LIQUEFIER, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[]{
             new ItemStack(Material.PACKED_ICE), SlimefunItems.COOLING_UNIT, new ItemStack(Material.PACKED_ICE),
             SlimefunItems.COOLING_UNIT, SlimefunItems.FREEZER, SlimefunItems.COOLING_UNIT,
             new ItemStack(Material.PACKED_ICE), SlimefunItems.COOLING_UNIT, new ItemStack(Material.PACKED_ICE)
@@ -22,7 +23,7 @@ public class AirLiquefier extends AContainer implements RecipeDisplayItem {
 
     @Override
     protected void registerDefaultRecipes() {
-        registerRecipe(5, SlimefunItems.TIN_CAN, Explosives.LIQUID_AIR);
+        registerRecipe(5, SlimefunItems.TIN_CAN, Items.LIQUID_AIR);
     }
 
     @Override
@@ -40,6 +41,7 @@ public class AirLiquefier extends AContainer implements RecipeDisplayItem {
         return 1;
     }
 
+    @Nonnull
     @Override
     public String getMachineIdentifier() {
         return "AIR_LIQUEFIER";

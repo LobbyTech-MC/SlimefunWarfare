@@ -1,11 +1,11 @@
 package io.github.seggan.slimefunwarfare.items.blocks;
 
 import io.github.seggan.slimefunwarfare.lists.Categories;
+import io.github.seggan.slimefunwarfare.lists.Items;
 import io.github.seggan.slimefunwarfare.lists.RecipeTypes;
-import io.github.seggan.slimefunwarfare.lists.items.Items;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.core.handlers.BlockBreakHandler;
-import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
-import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
@@ -14,15 +14,16 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
+import javax.annotation.Nonnull;
 
 public class Meteor extends SlimefunItem {
 
     public Meteor(SlimefunItemStack item) {
-        super(Categories.RESOURCES, item, RecipeTypes.SPACE, null);
+        super(Categories.RESOURCES, item, RecipeTypes.METEOR_ATTRACTOR, new ItemStack[9]);
 
-        addItemHandler(new BlockBreakHandler(false, false) {
+        addItemHandler(new BlockBreakHandler(true, false) {
             @Override
-            public void onPlayerBreak(BlockBreakEvent e, ItemStack itemStack, List<ItemStack> drops) {
+            public void onPlayerBreak(@Nonnull BlockBreakEvent e, @Nonnull ItemStack itemStack, @Nonnull List<ItemStack> drops) {
                 if (itemStack.containsEnchantment(Enchantment.SILK_TOUCH)) {
                     drops.add(getItem().clone());
                 } else {
@@ -42,6 +43,7 @@ public class Meteor extends SlimefunItem {
         });
     }
 
+    @Nonnull
     @Override
     public Collection<ItemStack> getDrops() {
         return new ArrayList<>();

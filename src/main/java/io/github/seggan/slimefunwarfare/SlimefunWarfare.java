@@ -1,29 +1,32 @@
 package io.github.seggan.slimefunwarfare;
 
 import com.google.common.collect.Sets;
-import io.github.mooy1.infinitylib.AbstractAddon;
-import io.github.mooy1.infinitylib.bstats.bukkit.Metrics;
+import io.github.mooy1.infinitylib.common.Events;
+import io.github.mooy1.infinitylib.common.Scheduler;
+import io.github.mooy1.infinitylib.core.AbstractAddon;
+import io.github.mooy1.infinitylib.metrics.bukkit.Metrics;
 import io.github.seggan.slimefunwarfare.items.guns.Gun;
 import io.github.seggan.slimefunwarfare.items.powersuits.ArmorPiece;
 import io.github.seggan.slimefunwarfare.items.powersuits.Module;
 import io.github.seggan.slimefunwarfare.items.powersuits.PowerSuit;
+import io.github.seggan.slimefunwarfare.listeners.BreakListener;
 import io.github.seggan.slimefunwarfare.listeners.BulletListener;
+import io.github.seggan.slimefunwarfare.listeners.ChatListener;
 import io.github.seggan.slimefunwarfare.listeners.ConcreteListener;
 import io.github.seggan.slimefunwarfare.listeners.GrenadeListener;
 import io.github.seggan.slimefunwarfare.listeners.HitListener;
 import io.github.seggan.slimefunwarfare.listeners.ModuleListener;
 import io.github.seggan.slimefunwarfare.listeners.NukeListener;
 import io.github.seggan.slimefunwarfare.listeners.PyroListener;
-import io.github.seggan.slimefunwarfare.listeners.SpaceListener;
 import io.github.seggan.slimefunwarfare.lists.Categories;
-import io.github.seggan.slimefunwarfare.spacegenerators.SpaceGenerator;
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunPlugin;
-import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
-import org.bukkit.Bukkit;
-import org.bukkit.GameRule;
+import io.github.seggan.slimefunwarfare.lists.Items;
+import io.github.thebusybiscuit.slimefun4.api.MinecraftVersion;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
+import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
+import org.bukkit.Material;
 import org.bukkit.Particle;
-import org.bukkit.World;
-import org.bukkit.WorldCreator;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -36,12 +39,13 @@ import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.potion.PotionEffect;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 import java.util.logging.Level;
+import javax.annotation.Nonnull;
 
 public class SlimefunWarfare extends AbstractAddon implements Listener {
 
@@ -49,14 +53,25 @@ public class SlimefunWarfare extends AbstractAddon implements Listener {
     
     private static final Set<UUID> flying = new HashSet<>();
 
-    @Override
-    public void onAddonEnable() {
+    public SlimefunWarfare() {
+        super("Seggan", "SlimefunWarfare", "master", "auto-update");
+    }
 
+    @Override
+    public void enable() {
         instance = this;
 
-        registerListener(new BulletListener(), new PyroListener(),
-            new GrenadeListener(), new ConcreteListener(), new NukeListener(),
-            new SpaceListener(), new HitListener(), new ModuleListener(), this);
+        new Metrics(this, 9227);
+
+        Events.registerListener(new BulletListener());
+        Events.registerListener(new PyroListener());
+        Events.registerListener(new GrenadeListener());
+        Events.registerListener(new ConcreteListener());
+        Events.registerListener(new NukeListener());
+        Events.registerListener(new HitListener());
+        Events.registerListener(new ModuleListener());
+        Events.registerListener(new BreakListener());
+        Events.registerListener(new ChatListener());
 
         Categories.setup(this);
 
@@ -67,35 +82,17 @@ public class SlimefunWarfare extends AbstractAddon implements Listener {
         Setup.setupExplosives(this);
         Setup.setupSpace(this);
         Setup.setupSuits(this);
+        Setup.setupResearches();
 
         Module.setup(this);
 
-        if (getJavaVersion() < 11) {
-            log(Level.WARNING, "You are using a Java version that is less that 11! Please use Java 11 or above");
-        }
-
-        for (World world : Bukkit.getWorlds()) {
-            String name = world.getName();
-            if (name != "world" || name != "bskyblock_world") continue;
-
-            World space = Bukkit.getWorld(name + "_space");
-            if (space != null) continue;
-
-            if (!SlimefunPlugin.getWorldSettingsService().isWorldEnabled(world)) continue;
-
-            WorldCreator creator = new WorldCreator(name + "_space")
-                .seed(world.getSeed())
-                .generator(new SpaceGenerator());
-            space = creator.createWorld();
-
-            space.setGameRule(GameRule.DO_DAYLIGHT_CYCLE, false);
-            space.setGameRule(GameRule.DO_WEATHER_CYCLE, false);
-            space.setTime(18000L);
+        if (getJavaVersion() < 16) {
+            log(Level.WARNING, "You are using a Java version that is less that 16! Please use Java 16 or above");
         }
 
         if (getConfig().getBoolean("guns.autoshoot", true)) {
             // Gun autoshoot task
-            scheduleRepeatingSync(() -> {
+            Scheduler.repeat(1, () -> {
                 for (Player p : getServer().getOnlinePlayers()) {
                     if (p.isSneaking() && !p.isFlying()) {
                         ItemStack stack = p.getInventory().getItemInMainHand();
@@ -116,10 +113,10 @@ public class SlimefunWarfare extends AbstractAddon implements Listener {
                         gun.shoot(p, stack);
                     }
                 }
-            }, 1);
+            });
         }
 
-        scheduleRepeatingSync(() -> {
+        Scheduler.repeat(20, () -> {
             for (Player p : getServer().getOnlinePlayers()) {
                 PlayerInventory inv = p.getInventory();
 
@@ -141,10 +138,10 @@ public class SlimefunWarfare extends AbstractAddon implements Listener {
                     }
                 });
             }
-        }, 20);
+        });
 
         if (getConfig().getBoolean("suits.flight-particles", true)) {
-            scheduleRepeatingSync(() -> {
+            Scheduler.repeat(4, () -> {
                 for (UUID uuid : flying) {
                     Player p = getServer().getPlayer(uuid);
                     if (p == null) {
@@ -155,25 +152,24 @@ public class SlimefunWarfare extends AbstractAddon implements Listener {
                         p.getWorld().spawnParticle(Particle.SOUL_FIRE_FLAME, p.getLocation().subtract(0, 1, 0), 20, 0.5, 0.5, 0.5);
                     }
                 }
-            }, 4);
+            });
+        }
+
+        if (Slimefun.getMinecraftVersion().isAtLeast(MinecraftVersion.MINECRAFT_1_17)) {
+            try {
+                Class<?> orechid = Class.forName("me.profelements.dynatech.items.tools.Orechid");
+                Method method = orechid.getDeclaredMethod("registerOre", Material.class, SlimefunItemStack.class, float.class);
+                method.setAccessible(true);
+                method.invoke(null, Material.WAXED_WEATHERED_CUT_COPPER_STAIRS, Items.OSMIUM_METEOR, 100 - getConfig().getInt("space.segganesson-chance", 0, 100));
+                method.invoke(null, Material.WAXED_WEATHERED_CUT_COPPER_STAIRS, Items.SEGGANESSON_METEOR, getConfig().getInt("space.segganesson-chance", 0, 100));
+            } catch (ClassNotFoundException | NoSuchMethodException | InvocationTargetException | IllegalAccessException ignored) {
+            }
         }
     }
 
     @Override
-    protected void onAddonDisable() {
+    protected void disable() {
         instance = null;
-    }
-
-    @Nullable
-    @Override
-    protected Metrics setupMetrics() {
-        return new Metrics(this, 9227);
-    }
-
-    @Nonnull
-    @Override
-    protected String getGithubPath() {
-        return "Seggan/SlimefunWarfare/master";
     }
 
     @EventHandler

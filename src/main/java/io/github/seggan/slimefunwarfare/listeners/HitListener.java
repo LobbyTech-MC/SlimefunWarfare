@@ -1,5 +1,13 @@
 package io.github.seggan.slimefunwarfare.listeners;
 
+import io.github.seggan.slimefunwarfare.items.Dummy;
+import io.github.seggan.slimefunwarfare.items.EnergyBlade;
+import io.github.seggan.slimefunwarfare.lists.Items;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.common.ChatColors;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import net.md_5.bungee.api.ChatMessageType;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -7,6 +15,7 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
+import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 
 import io.github.seggan.slimefunwarfare.items.Dummy;
@@ -55,9 +64,14 @@ public class HitListener implements Listener {
 
     @EventHandler
     public void onDummyDestroy(PlayerInteractEntityEvent e) {
-        Entity entity = e.getRightClicked();
-        if (PersistentDataAPI.getString(entity, Dummy.KEY) != null) {
-            entity.remove();
+        if (e.getHand() == EquipmentSlot.HAND) {
+            Entity entity = e.getRightClicked();
+            if (PersistentDataAPI.getString(entity, Dummy.KEY) != null) {
+                entity.remove();
+                ItemStack stack = Items.DUMMY.clone();
+                stack.setAmount(1);
+                entity.getWorld().dropItemNaturally(entity.getLocation(), stack);
+            }
         }
     }
 

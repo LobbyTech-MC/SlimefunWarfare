@@ -2,12 +2,12 @@ package io.github.seggan.slimefunwarfare.items;
 
 import io.github.seggan.slimefunwarfare.SlimefunWarfare;
 import io.github.seggan.slimefunwarfare.lists.Categories;
-import io.github.seggan.slimefunwarfare.lists.items.Melee;
+import io.github.seggan.slimefunwarfare.lists.Items;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.handlers.ItemUseHandler;
-import me.mrCookieSlime.Slimefun.Lists.RecipeType;
-import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
-import me.mrCookieSlime.Slimefun.cscorelib2.data.PersistentDataAPI;
-import me.mrCookieSlime.Slimefun.cscorelib2.inventory.ItemUtils;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.items.ItemUtils;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -22,7 +22,7 @@ public class Dummy extends SlimefunItem {
     public static final NamespacedKey KEY = new NamespacedKey(SlimefunWarfare.inst(), "dummy");
 
     public Dummy() {
-        super(Categories.GENERAL, Melee.DUMMY, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[]{
+        super(Categories.GENERAL, Items.DUMMY, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[]{
             new ItemStack(Material.LEATHER_CHESTPLATE), null, null,
             new ItemStack(Material.LEATHER_LEGGINGS), new ItemStack(Material.ARMOR_STAND), null,
             new ItemStack(Material.LEATHER_BOOTS), null, null
@@ -40,6 +40,8 @@ public class Dummy extends SlimefunItem {
 
             z.setCustomName("假人");
             z.setCustomNameVisible(true);
+
+            z.setRemoveWhenFarAway(false);
 
             z.setAI(false);
             z.setAware(false);

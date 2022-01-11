@@ -1,17 +1,31 @@
 package io.github.seggan.slimefunwarfare;
 
 import io.github.seggan.slimefunwarfare.items.powersuits.PowerSuit;
-import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
+import org.bukkit.block.BlockFace;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.function.Consumer;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.util.function.Consumer;
 
 public final class Util {
+
+    public static final String whatIsThis = "QRYGNF";
+
+    public static final BlockFace[] SURROUNDING_FACES = new BlockFace[] {
+        BlockFace.NORTH,
+        BlockFace.NORTH_EAST,
+        BlockFace.EAST,
+        BlockFace.SOUTH_EAST,
+        BlockFace.SOUTH,
+        BlockFace.SOUTH_WEST,
+        BlockFace.WEST,
+        BlockFace.NORTH_WEST
+    };
 
     private Util() {}
 

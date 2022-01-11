@@ -1,17 +1,16 @@
 package io.github.seggan.slimefunwarfare.items.powersuits;
 
+import io.github.mooy1.infinitylib.common.Scheduler;
 import io.github.seggan.slimefunwarfare.SlimefunWarfare;
+import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.multiblocks.MultiBlockMachine;
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunPlugin;
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.items.ItemUtils;
 import io.github.thebusybiscuit.slimefun4.libraries.paperlib.PaperLib;
 import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
-import me.mrCookieSlime.Slimefun.Lists.RecipeType;
-import me.mrCookieSlime.Slimefun.Objects.Category;
-import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
-import me.mrCookieSlime.Slimefun.api.Slimefun;
-import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
-import me.mrCookieSlime.Slimefun.cscorelib2.inventory.ItemUtils;
-import me.mrCookieSlime.Slimefun.cscorelib2.item.CustomItem;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -26,9 +25,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.function.Function;
+import javax.annotation.Nonnull;
 
 /**
  * This is a multiblock machine for crafting materials. Heavily influenced by the
@@ -38,11 +37,11 @@ import java.util.function.Function;
  */
 public class ElementForge extends MultiBlockMachine {
 
-    public ElementForge(Category category, SlimefunItemStack item) {
+    public ElementForge(ItemGroup category, SlimefunItemStack item) {
         super(category, item, new ItemStack[]{
-            getCorner(), new CustomItem(Material.PISTON, "&fPiston &7(Facing Down)"), getCorner(),
+            getCorner(), new CustomItemStack(Material.PISTON, "&fPiston &7(Facing Down)"), getCorner(),
             new ItemStack(Material.NETHER_BRICK_WALL), null, new ItemStack(Material.NETHER_BRICK_WALL),
-            new CustomItem(Material.HOPPER, "&fHopper &7(Facing Inwards)"), new ItemStack(Material.SMITHING_TABLE),
+            new CustomItemStack(Material.HOPPER, "&fHopper &7(Facing Inwards)"), new ItemStack(Material.SMITHING_TABLE),
             new ItemStack(Material.DISPENSER)
         }, BlockFace.UP);
     }
@@ -81,7 +80,7 @@ public class ElementForge extends MultiBlockMachine {
                 if (isCraftable(inv, input)) {
                     ItemStack output = RecipeType.getRecipeOutputList(this, input).clone();
 
-                    if (Slimefun.hasPermission(p, SlimefunItem.getByItem(output), true)) {
+                    if (SlimefunUtils.canPlayerUseItem(p, output, true)) {
                         Inventory outputInv = findOutputInventory(output, dispenser, inv);
 
                         if (outputInv != null) {
@@ -89,10 +88,10 @@ public class ElementForge extends MultiBlockMachine {
 
                             movePiston(piston, pstn, true);
 
-                            SlimefunWarfare.inst().runSync(() -> movePiston(piston, pstn, false), 10L);
+                            Scheduler.run(10, () -> movePiston(piston, pstn, false));
 
                         } else {
-                            SlimefunPlugin.getLocalization().sendMessage(p, "machines.full-inventory", true);
+                            Slimefun.getLocalization().sendMessage(p, "machines.full-inventory", true);
                         }
                     }
 
@@ -100,13 +99,13 @@ public class ElementForge extends MultiBlockMachine {
                 }
             }
 
-            SlimefunPlugin.getLocalization().sendMessage(p, "machines.pattern-not-found", true);
+            Slimefun.getLocalization().sendMessage(p, "machines.pattern-not-found", true);
         }
     }
 
     private boolean isCraftable(Inventory inv, ItemStack[] recipe) {
         for (int j = 0; j < inv.getContents().length; j++) {
-            if (!SlimefunUtils.isItemSimilar(inv.getContents()[j], recipe[j], true)) {
+            if (!SlimefunUtils.isItemSimilar(inv.getContents()[j], recipe[j], true, false)) {
                 return false;
             }
         }

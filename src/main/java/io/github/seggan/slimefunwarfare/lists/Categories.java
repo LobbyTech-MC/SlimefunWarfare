@@ -1,51 +1,57 @@
 package io.github.seggan.slimefunwarfare.lists;
 
-import io.github.mooy1.infinitylib.categories.MultiCategory;
-import io.github.mooy1.infinitylib.categories.SubCategory;
+import io.github.mooy1.infinitylib.groups.MultiGroup;
+import io.github.mooy1.infinitylib.groups.SubGroup;
 import io.github.seggan.slimefunwarfare.SlimefunWarfare;
-import lombok.experimental.UtilityClass;
-import me.mrCookieSlime.Slimefun.Objects.Category;
-import me.mrCookieSlime.Slimefun.cscorelib2.item.CustomItem;
-import me.mrCookieSlime.Slimefun.cscorelib2.skull.SkullItem;
+import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.skins.PlayerHead;
 import org.bukkit.Material;
+
+import lombok.experimental.UtilityClass;
 
 @UtilityClass
 public final class Categories {
 
-    public static final Category GENERAL = new SubCategory(
-        SlimefunWarfare.inst().getKey("slimefunwarfare_general"),
-        new CustomItem(Material.DIAMOND_SWORD, "粘液科技军事")
+    public static final ItemGroup GENERAL = new SubGroup(
+        "slimefunwarfare_general",
+        new CustomItemStack(Material.DIAMOND_SWORD, "粘液战争 - 主菜单")
     );
 
-    public static final Category GUNS = new SubCategory(
-        SlimefunWarfare.inst().getKey("slimefunwarfare_guns"),
-        new CustomItem(Material.CROSSBOW, "粘液科技军事 - 枪支")
+    public static final ItemGroup MACHINES = new SubGroup(
+        "slimefunwarfare_machines",
+        new CustomItemStack(Material.STONECUTTER, "粘液战争 - 机器")
     );
 
-    public static final Category MELEE = new SubCategory(
-        SlimefunWarfare.inst().getKey("slimefunwarfare_melee"),
-        new CustomItem(Material.IRON_AXE, "粘液科技军事 - 近战")
+    public static final ItemGroup GUNS = new SubGroup(
+        "slimefunwarfare_guns",
+        new CustomItemStack(Material.CROSSBOW, "粘液战争 - 枪支")
     );
 
-    public static final Category EXPLOSIVES = new SubCategory(
-        SlimefunWarfare.inst().getKey("slimefunwarfare_explosives"),
-        new CustomItem(Material.TNT, "粘液科技军事 - 投掷")
+    public static final ItemGroup MELEE = new SubGroup(
+        "slimefunwarfare_melee",
+        new CustomItemStack(Material.IRON_AXE, "粘液战争 - 近战")
     );
 
-    public static final Category RESOURCES = new SubCategory(
-        SlimefunWarfare.inst().getKey("slimefunwarfare_resources"),
-        new CustomItem(Material.IRON_ORE, "粘液科技军事 - 资源")
+    public static final ItemGroup EXPLOSIVES = new SubGroup(
+        "slimefunwarfare_explosives",
+        new CustomItemStack(Material.TNT, "粘液战争 - 爆炸")
     );
 
-    public static final Category POWER_SUITS = new SubCategory(
-        SlimefunWarfare.inst().getKey("slimefunwarfare_power_suits"),
-        new CustomItem(SkullItem.fromBase64(Heads.SUIT_HELMET), "粘液科技军事 - 装备")
+    public static final ItemGroup RESOURCES = new SubGroup(
+        "slimefunwarfare_resources",
+        new CustomItemStack(Material.IRON_ORE, "粘液战争 - 资源")
     );
 
-    public static final Category MAIN = new MultiCategory(
-        SlimefunWarfare.inst().getKey("slimefunwarfare"),
-        new CustomItem(Material.DIAMOND_SWORD, "粘液科技军事"),
-        GENERAL, GUNS, MELEE, EXPLOSIVES, RESOURCES, POWER_SUITS
+    public static final ItemGroup POWER_SUITS = new SubGroup(
+        "slimefunwarfare_power_suits",
+        new CustomItemStack(PlayerHead.getItemStack(Heads.SUIT_HELMET), "粘液战争 - 装甲")
+    );
+
+    private static final ItemGroup MAIN = new MultiGroup(
+        "slimefunwarfare",
+        new CustomItemStack(Material.DIAMOND_SWORD, "粘液战争"),
+        GENERAL, MACHINES, GUNS, MELEE, EXPLOSIVES, RESOURCES, POWER_SUITS
     );
 
     public static void setup(SlimefunWarfare addon) {
