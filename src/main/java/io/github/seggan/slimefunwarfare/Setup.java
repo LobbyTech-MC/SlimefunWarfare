@@ -55,9 +55,9 @@ public final class Setup {
         new SlimefunItem(Categories.RESOURCES, Items.BORAX, RecipeType.NULL, fillNulls(
             new CustomItemStack(
                 Material.STONE,
-                "&fStone drop",
+                "&f石头掉落",
                 "",
-                "&7This item is dropped from stone"
+                "&7这个物品掉落自石头"
             )
         )).register(addon);
         new SlimefunItem(Categories.RESOURCES, Items.BORON, RecipeType.SMELTERY, fillNulls(Items.BORAX)).register(addon);

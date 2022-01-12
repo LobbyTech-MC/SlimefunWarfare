@@ -1,8 +1,9 @@
 package io.github.seggan.slimefunwarfare.lists.items;
 
-import io.github.thebusybiscuit.slimefun4.utils.HeadTexture;
-import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
 import org.bukkit.Material;
+
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.utils.HeadTexture;
 
 public final class Explosives {
 

@@ -6,7 +6,7 @@
 
     <groupId>io.github.seggan.slimefunwarfare</groupId>
     <artifactId>SlimefunWarfare</artifactId>
-    <version>UNOFFICIAL</version>
+    <version>zh_CN(LobbyTech)</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -14,7 +14,7 @@
     </properties>
 
     <build>
-        <finalName>${project.name} v${project.version}</finalName>
+        <finalName>[Slimefun]${project.name} ${project.version}</finalName>
         <defaultGoal>clean package -T 2.0C</defaultGoal>
 
         <resources>

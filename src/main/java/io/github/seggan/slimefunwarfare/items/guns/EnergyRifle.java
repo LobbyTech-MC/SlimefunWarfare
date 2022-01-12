@@ -1,10 +1,7 @@
 package io.github.seggan.slimefunwarfare.items.guns;
 
-import io.github.seggan.slimefunwarfare.SlimefunWarfare;
-import io.github.seggan.slimefunwarfare.Util;
-import io.github.seggan.slimefunwarfare.lists.Items;
-import io.github.thebusybiscuit.slimefun4.core.attributes.Rechargeable;
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
+import javax.annotation.Nonnull;
+
 import org.bukkit.entity.Player;
 import org.bukkit.entity.ShulkerBullet;
 import org.bukkit.inventory.ItemStack;
@@ -13,8 +10,7 @@ import org.bukkit.util.Vector;
 
 import io.github.seggan.slimefunwarfare.SlimefunWarfare;
 import io.github.seggan.slimefunwarfare.Util;
-import io.github.seggan.slimefunwarfare.lists.items.Guns;
-import io.github.seggan.slimefunwarfare.lists.items.Items;
+import io.github.seggan.slimefunwarfare.lists.Items;
 import io.github.thebusybiscuit.slimefun4.core.attributes.Rechargeable;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 
@@ -56,11 +52,11 @@ public class EnergyRifle extends Gun implements Rechargeable {
         bullet.setVelocity(v);
     }
 
-	private int getRange() {
+	public int getRange() {
 		return 100;
 	}
 
-	private int getDamageDealt() {
+	public int getDamageDealt() {
 		return 20;
 	}
 

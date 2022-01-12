@@ -1,8 +1,5 @@
 package io.github.seggan.slimefunwarfare.items.powersuits;
 
-import lombok.AllArgsConstructor;
-
-@AllArgsConstructor
 public enum ArmorPiece {
     HEAD("helmet"),
     CHEST("chestplate"),

@@ -1,5 +1,17 @@
 package io.github.seggan.slimefunwarfare.machines;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.concurrent.ThreadLocalRandom;
+
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
+
+import org.bukkit.Material;
+import org.bukkit.block.Block;
+import org.bukkit.inventory.ItemStack;
+
 import io.github.mooy1.infinitylib.common.StackUtils;
 import io.github.mooy1.infinitylib.machines.AbstractMachineBlock;
 import io.github.mooy1.infinitylib.machines.MenuBlock;
@@ -16,18 +28,6 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
-import org.bukkit.Material;
-import org.bukkit.block.Block;
-import org.bukkit.inventory.ItemStack;
-
-import lombok.Getter;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.concurrent.ThreadLocalRandom;
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
 
 public class IonExchangeSeparator extends AbstractMachineBlock implements EnergyNetComponent, MachineProcessHolder<IonExchangeSeparator.Operation> {
 
@@ -128,7 +128,6 @@ public class IonExchangeSeparator extends AbstractMachineBlock implements Energy
 
     protected static final class Operation implements MachineOperation {
 
-        @Getter
         private final ItemStack result;
 
         private int ticks = 0;
@@ -137,7 +136,11 @@ public class IonExchangeSeparator extends AbstractMachineBlock implements Energy
             this.result = result;
         }
 
-        @Override
+        public ItemStack getResult() {
+			return result;
+		}
+
+		@Override
         public void addProgress(int ticks) {
             this.ticks += ticks;
         }
