@@ -29,56 +29,56 @@ public final class Items {
         Material.REDSTONE,
         "&4火药粉",
         "",
-        "&7爆炸危险!"
+        "&7确实是一种极易爆炸的物质"
     );
     public static final SlimefunItemStack LIQUID_AIR = new SlimefunItemStack(
         "LIQUID_AIR",
         HeadTexture.TIN_CAN,
-        "&f液态空气",
+        "&f液化空气",
         "",
-        "&7禁止触摸!"
+        "&7不要碰!"
     );
     public static final SlimefunItemStack LIQUID_NITROGEN = new SlimefunItemStack(
         "LIQUID_NITROGEN",
         HeadTexture.TIN_CAN,
         "&f液氮",
         "",
-        "&7注意低温?"
+        "&7有人要冰淇淋吗?"
     );
     public static final SlimefunItemStack PURIFIED_LIQUID_NITROGEN = new SlimefunItemStack(
         "PURIFIED_LIQUID_NITROGEN",
         HeadTexture.TIN_CAN,
         "&f纯化液氮",
         "",
-        "&7高纯度"
+        "&7尽可能纯净"
     );
     public static final SlimefunItemStack THIOACETONE = new SlimefunItemStack(
         "THIOACETONE",
         Material.BROWN_DYE,
         "&6硫代丙酮",
         "",
-        "&7臭鸡蛋味"
+        "&7确实很臭"
     );
     public static final SlimefunItemStack NITROGEN_TRIIODIDE = new SlimefunItemStack(
         "NITROGEN_TRIIODIDE",
         Material.PURPLE_DYE,
         "&5三碘化氮",
         "",
-        "&7手榴弹原料之一"
+        "&7一种用于制造手榴弹的材料"
     );
     public static final SlimefunItemStack AZIDOAZIDE_AZIDE = new SlimefunItemStack(
         "AZIDOAZIDE_AZIDE",
         Material.SUGAR,
-        "&e叠氮化物",
+        "&e叠氮化碳",
         "",
-        "&7手榴弹原料之一"
+        "&7一种用于制造手榴弹的材料"
     );
     public static final SlimefunItemStack ARSENIC = new SlimefunItemStack(
         "ARSENIC",
         Material.GUNPOWDER,
         "&7砷",
         "",
-        "&7手榴弹原料之一"
+        "&7一种用于制造手榴弹的材料"
     );
     public static final SlimefunItemStack ENRICHED_URANIUM = new SlimefunItemStack(
         "ENRICHED_URANIUM",
@@ -92,14 +92,14 @@ public final class Items {
         Material.SNOWBALL,
         "&f化学手榴弹",
         "",
-        "&7类型: 无"
+        "&7包含特殊物质: 无"
     );
     public static final SlimefunItemStack REINFORCED_CONCRETE = new SlimefunItemStack(
         "REINFORCED_CONCRETE",
         Material.GRAY_CONCRETE,
         "&7钢筋混凝土",
         "",
-        "&7一种具有爆炸抗性 (不保证炸不坏) 的混凝土"
+        "&7一种防爆的混凝土(不完全免疫爆炸)"
     );
     public static final SlimefunItemStack NUCLEAR_BOMB = new SlimefunItemStack(
         "NUCLEAR_BOMB",
@@ -117,7 +117,7 @@ public final class Items {
         Material.QUARTZ,
         "&f硼砂",
         "",
-        "&7一种从石头上掉下来的普通矿物"
+        "&7从石头中掉落的一种常见的矿物"
     );
     public static final SlimefunItemStack BORON = new SlimefunItemStack(
         "BORON",
@@ -127,19 +127,17 @@ public final class Items {
     public static final SlimefunItemStack SLIMESTEEL = new SlimefunItemStack(
         "SLIMESTEEL_INGOT",
         Material.IRON_INGOT,
-        "&a史莱姆钢锭",
+        "&a软钢锭",
         "",
-        "坚硬且延展性好的金属",
-        "非常适合于各种应用场景"
+        "坚硬而有弹性的一种材料"
     );
 
     public static final SlimefunItemStack REINFORCED_SLIMESTEEL = new SlimefunItemStack(
         "REINFORCED_SLIMESTEEL_INGOT",
         Material.IRON_INGOT,
-        "&a强化史莱姆钢锭",
+        "&a强化软钢锭",
         "",
-        "坚硬且延展性好的金属",
-        "非常适合于各种应用场景"
+        "坚硬而有弹性的一种材料"
     );
 
     public static final SlimefunItemStack SCOPE = new SlimefunItemStack(
@@ -163,7 +161,7 @@ public final class Items {
     public static final SlimefunItemStack BULLET_PRESS = new SlimefunItemStack(
         "BULLET_PRESS",
         Material.SMOKER,
-        "&7子弹头压力机",
+        "&7子弹制造机",
         "",
         LoreBuilder.powerPerSecond(16),
         LoreBuilder.powerBuffer(32),
@@ -183,7 +181,7 @@ public final class Items {
     public static final SlimefunItemStack EXPLOSIVE_SYNTHESIZER = new SlimefunItemStack(
         "EXPLOSIVE_SYNTHESIZER",
         Material.TNT,
-        "&4爆炸合成器",
+        "&4爆炸物合成器",
         "",
         LoreBuilder.powerPerSecond(64),
         LoreBuilder.powerBuffer(128),
@@ -193,9 +191,9 @@ public final class Items {
     public static final SlimefunItemStack BOOMINATOR_9000 = new SlimefunItemStack(
         "BOOMINATOR_9000",
         Material.SMITHING_TABLE,
-        "&4轰鸣器 9000",
+        "&4助泡剂 9000",
         "",
-        "&7为核弹加工铀",
+        "&7处理用于核弹的铀",
         LoreBuilder.powerPerSecond(1024),
         LoreBuilder.powerBuffer(2048),
         LoreBuilder.machine(MachineTier.END_GAME, MachineType.MACHINE)
@@ -204,57 +202,57 @@ public final class Items {
     public static final SlimefunItemStack IRON_BULLET = new SlimefunItemStack(
         "IRON_BULLET",
         Material.IRON_NUGGET,
-        "&7铁子弹",
+        "&7铁制子弹",
         "",
-        "&7x0.75 伤害"
+        "&70.75 倍伤害"
     );
 
     public static final SlimefunItemStack LEAD_BULLET = new SlimefunItemStack(
         "LEAD_BULLET",
         Material.IRON_NUGGET,
-        "&7铅弹",
+        "&7铅制子弹",
         "",
-        "&7x1 伤害"
+        "&71 倍伤害"
     );
 
     public static final SlimefunItemStack DU_BULLET = new SlimefunItemStack(
         "DU_BULLET",
         Material.IRON_NUGGET,
-        "&a杜子弹",
+        "&a贫铀弹",
         "",
-        "&7点燃被击中的实体",
-        "&7x1.5 伤害"
+        "&7让命中的实体着火",
+        "&71.5 倍伤害"
     );
 
     public static final SlimefunItemStack GOLD_BULLET = new SlimefunItemStack(
         "GOLD_BULLET",
         Material.GOLD_NUGGET,
-        "&6金子弹",
+        "&6金制子弹",
         "",
-        "&7x2 伤害"
+        "&72 倍伤害"
     );
 
     public static final SlimefunItemStack TRINITROBULLETENE = new SlimefunItemStack(
         "TRINITROBULLETENE_BULLET",
         Material.GOLD_NUGGET,
-        "&6三硝基弹",
+        "&6三硝基丁烯弹",
         "",
-        "&7点燃被击中的实体",
-        "&7x2.75 伤害"
+        "&7让命中的实体着火",
+        "&72.75 倍伤害"
     );
 
     public static final SlimefunItemStack GUN_CASE = new SlimefunItemStack(
         "GUN_CASE",
         Material.CROSSBOW,
-        "&7枪盒",
+        "&7枪套",
         "",
-        "&7所有枪支的基地"
+        "&7用于制造枪械"
     );
 
     public static final SlimefunItemStack OSMIUM_METEOR = new SlimefunItemStack(
         "OSMIUM_METEOR",
         Material.IRON_ORE,
-        "&9锇陨石",
+        "&9锇流星",
         "",
         "&7稀有金属锇的来源"
     );
@@ -264,7 +262,7 @@ public final class Items {
         Material.SUGAR,
         "&9锇粉",
         "",
-        "&7剧毒 戴好防毒面具!"
+        "&7剧毒!请勿吸入!"
     );
 
     public static final SlimefunItemStack OSMIUM_INGOT = new SlimefunItemStack(
@@ -272,7 +270,7 @@ public final class Items {
         Material.IRON_INGOT,
         "&9锇锭",
         "",
-        "&7一种仅在外太空发现的非常坚固的金属"
+        "&7只有在外太空才能找到的一种坚硬的金属"
     );
 
     public static final SlimefunItemStack OSMIUM_SUPERALLOY = new SlimefunItemStack(
@@ -280,23 +278,23 @@ public final class Items {
         Material.IRON_INGOT,
         "&9锇高温合金",
         "",
-        "&7已知硬度最大、柔韧性最好、最强的矿物材料"
+        "&7迄今为止最硬、最坚韧、最牢固的金属"
     );
 
     public static final SlimefunItemStack SEGGANESSON_METEOR = new SlimefunItemStack(
         "SEGGANESSON_METEOR",
         Material.DIAMOND_ORE,
-        "&7赛格内松流星",
+        "&7塞格尼森流星",
         "",
-        "&7稀有元素赛格内松的资源"
+        "&7稀有元素塞格尼森的来源"
     );
 
     public static final SlimefunItemStack SEGGANESSON = new SlimefunItemStack(
         "SEGGANESSON",
         Material.LIGHT_BLUE_DYE,
-        "&b赛格内松",
+        "&b塞格尼森",
         "",
-        "&7一种有潜力为整个城市供电的稀有元素"
+        "&7一种可以点亮整座城市的稀有元素"
     );
 
     public static final SlimefunItemStack ENERGY_RECTIFIER = new SlimefunItemStack(
@@ -304,7 +302,7 @@ public final class Items {
         Material.POWERED_RAIL,
         "&b能量整流器",
         "",
-        "&7将电能转化为纯能量"
+        "&7将电能转化为纯净能源"
     );
 
     public static final SlimefunItemStack METEOR_ATTRACTOR = new SlimefunItemStack(
@@ -312,17 +310,18 @@ public final class Items {
         HeadTexture.MAGNET,
         "&f流星吸引器",
         "",
-        "&7一个强大的磁铁",
-        "&7可以从太空中吸引流星"
+        "&7一块强大的磁铁",
+        "&7可以从外太空吸引流星"
     );
 
     public static final SlimefunItemStack ELEMENTAL_REACTOR = new SlimefunItemStack(
         "ELEMENTAL_REACTOR",
         HeadTexture.GENERATOR,
-        "&b元素反应堆",
+        "&b元素发电机",
         "",
-        "&7使用富有能量的",
-        "&7赛格内松和未获专利材料发电",
+        "&7使用富含能量的元素",
+        "&7非专利品与赛格尼森",
+        "&7产生电力",
         LoreBuilder.machine(MachineTier.END_GAME, MachineType.GENERATOR),
         LoreBuilder.powerBuffer(32_768),
         LoreBuilder.powerPerSecond(32_768)
@@ -355,12 +354,14 @@ public final class Items {
     public static final SlimefunItemStack RADIO = new SlimefunItemStack(
         "RADIO",
         Material.REDSTONE_TORCH,
-        "&f收音机",
+        "&f无线电",
         "",
-        "&7将它放入背包与别人聊天",
-        "&7通过加密秘钥对消息进行编码/解码",
-        "&7只有拥有相同加密秘钥的人可以读懂你的消息",
-        "&7右键设置加密秘钥聊天"
+        "&7手持该物品,与其他物品栏中",
+        "&7有此物品的玩家聊天.",
+        "&7密钥用于加密/解密消息",
+        "&7只有拥有相同密钥的玩家才可以读懂聊天内容",
+        "&7手持该物品即可进行聊天",
+        "&7手持该物品右键点击以设置密钥"
     );
     // endregion
 
@@ -370,7 +371,7 @@ public final class Items {
         Material.SEA_LANTERN,
         "&b离子交换分离器",
         "",
-        "&7提纯独居石中难以分离的稀土",
+        "&7从独居石中分离出难以分离的稀土",
         LoreBuilder.machine(MachineTier.ADVANCED, MachineType.MACHINE),
         LoreBuilder.powerPerSecond(256),
         LoreBuilder.powerBuffer(512)
@@ -382,7 +383,7 @@ public final class Items {
         "&e独居石",
         "",
         "&7所有稀土的来源",
-        "&7可以在火成岩中找到"
+        "&7可在岩浆岩中找到"
     );
 
     public static final SlimefunItemStack LANTHANUM_INGOT = new SlimefunItemStack(
@@ -390,7 +391,8 @@ public final class Items {
         Material.IRON_INGOT,
         "&e镧锭",
         "",
-        "&7可用作无限打火石"
+        "&7可作为无限打火石使用",
+        "&8然而并不能放在自动点火机里"
     );
 
     public static final SlimefunItemStack NEODYMIUM_INGOT = new SlimefunItemStack(
@@ -440,29 +442,27 @@ public final class Items {
         Material.IRON_INGOT,
         "&6三苯酚",
         "",
-        "&7这种合金具有在磁场中",
-        "&7改变形状的有趣特性"
+        "&7这种合金具有在磁场中改变形状的特性"
     );
 
     public static final SlimefunItemStack TERFENOL_D_BLOCK = new SlimefunItemStack(
         "TERFENOL_D_BLOCK",
         Material.IRON_BLOCK,
-        "&6三苯酚块"
+        "&6Terfenol-D 块"
     );
 
     public static final SlimefunItemStack NDFEB_ALLOY = new SlimefunItemStack(
         "NDFEB_ALLOY",
         Material.NETHERITE_INGOT,
-        "&6钕铁硼合金",
+        "&6钕磁铁合金",
         "",
-        "&7这种合金是人类已知最具磁性的",
-        "&7最具磁性的材料"
+        "&7这种合金是人类已知的最有磁性的材料"
     );
 
     public static final SlimefunItemStack NDFEB_ALLOY_BLOCK = new SlimefunItemStack(
         "NDFEB_ALLOY_BLOCK",
         Material.NETHERITE_BLOCK,
-        "&6钕铁硼合金块"
+        "&6钕磁铁合金块"
     );
     // endregion
 
@@ -470,65 +470,67 @@ public final class Items {
     public static final SlimefunItemStack UNPATENTABLIUM = new SlimefunItemStack(
         "UNPATENTABLIUM",
         Material.LIGHT_BLUE_DYE,
-        "&b未获专利材料",
+        "&b非专利品",
         "",
-        "&7出于某种原因",
-        "&7联邦调查局不会让你",
-        "&7为这种强大的电源",
-        "&7申请专利"
+        "&7由于某些原因，",
+        "&7联邦政府不会让你为这种",
+        "&7强大的能源申请专利"
     );
 
     public static final SlimefunItemStack POWER_SUIT_GENERATOR = new SlimefunItemStack(
         "POWER_SUIT_GENERATOR",
         "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTFkNWExZmY3Zjk3NmMxYzJlYmQ0ZWY5YTkwYWQ5MTQ2Nzk1YzFjNDRmZGFlNjI5NjQ5NDg0MzRhNzI1NyJ9fX0=",
-        "&6电力套装发电装置",
+        "&6动力装甲能源核心",
         "",
-        "&7任何用电套装",
-        "&7的电力供给中心"
+        "&7所有动力装甲的能源核心"
     );
 
     public static final SlimefunItemStack ELEMENT_FORGE = new SlimefunItemStack(
         "ELEMENT_FORGE",
         Material.SMITHING_TABLE,
-        "&c元素铁砧",
+        "&c元素锻造台",
         "",
-        "&7用于创建新元素",
+        "&7用来创建新的元素",
         "&c多方块结构"
     );
 
     public static final SlimefunItemStack POWER_SUIT_HELMET = new SlimefunItemStack(
         "POWER_SUIT_HELMET",
         PlayerHead.getItemStack(Heads.SUIT_HELMET),
-        "&4电力套装头盔",
+        "&4动力装甲头盔",
         "",
-        "&7改进设计的强大盔甲",
+        "&7动力装甲的一部分",
+        "&7可安装模块",
         LoreBuilder.powerPerSecond(5),
         LoreBuilder.powerCharged(0, 1000)
     );
     public static final SlimefunItemStack POWER_SUIT_CHESTPLATE = new SlimefunItemStack(
         "POWER_SUIT_CHESTPLATE",
         Material.LEATHER_CHESTPLATE, Color.MAROON,
-        "&4电力套装胸甲",
+        "&4动力装甲胸甲",
         "",
-        "&7改进设计的强大盔甲",
+        "&7动力装甲的一部分",
+        "&7可安装模块",
         LoreBuilder.powerPerSecond(5),
         LoreBuilder.powerCharged(0, 1000)
     );
     public static final SlimefunItemStack POWER_SUIT_LEGGINGS = new SlimefunItemStack(
         "POWER_SUIT_LEGGINGS",
         Material.LEATHER_LEGGINGS, Color.MAROON,
-        "&4电力套装头盔",
+        "&4动力装甲护腿",
         "",
-        "&7改进设计的强大盔甲",
+        "&7动力装甲的一部分",
+        "&7可安装模块",
         LoreBuilder.powerPerSecond(5),
         LoreBuilder.powerCharged(0, 1000)
     );
     public static final SlimefunItemStack POWER_SUIT_BOOTS = new SlimefunItemStack(
         "POWER_SUIT_BOOTS",
         Material.LEATHER_BOOTS, Color.MAROON,
-        "&4电力套装靴子",
+        "&4动力装甲靴子",
         "",
-        "&7改进设计的强大盔甲",
+        "&7动力装甲的一部分",
+        "&7可安装模块",
         LoreBuilder.powerPerSecond(5),
         LoreBuilder.powerCharged(0, 1000)
     );
@@ -536,15 +538,15 @@ public final class Items {
     public static final SlimefunItemStack MODULE_MANIPULATOR = new SlimefunItemStack(
         "MODULE_MANIPULATOR",
         Material.CRAFTING_TABLE,
-        "&f模块机械手",
+        "&f模块控制台",
         "",
-        "&7允许你安装、卸载或查看模组"
+        "&7允许你安装、卸载、查看模块"
     );
 
     public static final SlimefunItemStack MODULE_CASE = new SlimefunItemStack(
         "MODULE_CASE",
         PlayerHead.getItemStack(Heads.MODULE),
-        "&6模组案例"
+        "&6模块核心"
     );
     // endregion
 
@@ -554,107 +556,105 @@ public final class Items {
         Material.CROSSBOW,
         "&7手枪",
         "",
-        "&7短程枪",
-        "&7换弹快",
-        "&7近战优势",
-        "&c范围: 10",
-        "&c伤害: 3 颗星",
-        "&c冷却: 0.5 秒"
+        "&7短射程,装填较快.",
+        "&7近距离战斗时特别有用.",
+        "&c射程: 10",
+        "&c伤害: 6 (3 ♥)",
+        "&c冷却时间: 0.5 秒"
     );
     public static final SlimefunItemStack REVOLVER = new SlimefunItemStack(
         "GUN_REVOLVER",
         Material.CROSSBOW,
         "&7左轮手枪",
         "",
-        "&7短程枪",
-        "&7换弹快",
-        "&7近战优势",
-        "&c范围: 10",
-        "&c伤害: 3 颗星",
-        "&c冷却: 0.3 秒"
+        "&7短射程,装填较快.",
+        "&7近距离战斗时特别有用.",
+        "&c射程: 10",
+        "&c伤害: 6 (3 ♥)",
+        "&c冷却时间: 0.3 秒"
     );
     public static final SlimefunItemStack MACHINE_GUN = new SlimefunItemStack(
         "GUN_MACHINE_GUN",
         Material.CROSSBOW,
         "&7机枪",
         "",
-        "&7biu biu biu",
-        "&c范围: 30",
-        "&c最小范围: 5",
-        "&c伤害: 3 颗星",
-        "&c冷却: 0.15 秒"
+        "&7哒哒哒~",
+        "&c射程: 30",
+        "&c最小射程: 5",
+        "&c伤害: 6 (3 ♥)",
+        "&c冷却时间: 0.15 秒"
     );
     public static final SlimefunItemStack MINIGUN = new SlimefunItemStack(
         "GUN_MINIGUN",
         Material.CROSSBOW,
-        "&7机枪",
+        "&7重机枪",
         "",
-        "&7保护队友的终极设备",
-        "&c范围: 40",
-        "&c最小范围: 5",
-        "&c伤害: 4 颗星",
-        "&c冷却: 无"
+        "&7为你的朋友增加点乐趣的终极装备.",
+        "&c射程: 40",
+        "&c最小射程: 5",
+        "&c伤害: 8 (4 ♥)",
+        "&c冷却时间: 无"
     );
     public static final SlimefunItemStack RIFLE = new SlimefunItemStack(
         "GUN_RIFLE",
         Material.CROSSBOW,
         "&7步枪",
         "",
-        "&7标准步枪",
-        "&c范围: 40",
-        "&c最小范围: 5",
-        "&c伤害: 4 颗星",
-        "&c冷却: 0.75 秒"
+        "&7一把标准步枪.",
+        "&c射程: 40",
+        "&c最小射程: 5",
+        "&c伤害: 8 (4 ♥)",
+        "&c冷却时间: 0.75 秒"
     );
     public static final SlimefunItemStack SHOTGUN = new SlimefunItemStack(
         "GUN_SHOTGUN",
         Material.CROSSBOW,
         "&7霰弹枪",
         "",
-        "&7射程比步枪小",
-        "&7伤害比步枪高",
-        "&c范围: 25",
-        "&c最小范围: 5",
-        "&c伤害: 6.5 颗星",
-        "&c冷却: 1.25 秒"
+        "&7拥有比步枪更近的射程",
+        "&7但能造成更多伤害.",
+        "&c射程: 25",
+        "&c最小射程: 5",
+        "&c伤害: 13 (6.5 ♥)",
+        "&c冷却时间: 1.25 秒"
     );
     public static final SlimefunItemStack ASSAULT_RIFLE = new SlimefunItemStack(
         "GUN_ASSAULT_RIFLE",
         Material.CROSSBOW,
         "&7突击步枪",
         "",
-        "&7步枪的衍生版本",
-        "&7是一种标准武器",
-        "&c范围: 50",
-        "&c最小范围: 3",
-        "&c伤害: 6.5 颗星",
-        "&c冷却: 0.3 秒"
+        "&7步枪的衍生物",
+        "&7突击步枪是标配",
+        "&c射程: 50",
+        "&c最小射程: 3",
+        "&c伤害: 13 (6.5 ♥)",
+        "&c冷却时间: 0.3 秒"
     );
     public static final SlimefunItemStack SNIPER = new SlimefunItemStack(
         "GUN_SNIPER",
         Material.CROSSBOW,
         "&7狙击步枪",
         "",
-        "&7终极远程武器",
-        "&7强大的狙击武器",
-        "&c范围: 130",
-        "&c最小范围: 50",
-        "&c伤害: 11 颗星",
-        "&c冷却: 8 秒"
+        "&7这把枪拥有超远的射程",
+        "&7狙击手的标配.",
+        "&c射程: 130",
+        "&c最小射程: 50",
+        "&c伤害: 22 (11 ♥)",
+        "&c冷却时间: 8 秒"
     );
     public static final SlimefunItemStack ENERGY_RIFLE = new SlimefunItemStack(
         "GUN_ENERGY_RIFLE",
         Material.CROSSBOW,
-        "&e电力步枪",
+        "&e能量步枪",
         "",
-        "&7终于不用随身携带子弹了!",
-        "&c每发子弹消耗 5J 电力",
-        "&c范围: 100",
-        "&c伤害: 10 hearts",
-        "&c冷却: 0.2 seconds",
+        "&7不再需要带子弹了",
+        "&c每发消耗 5J",
+        "&c射程: 100",
+        "&c伤害: 20 (10 ♥)",
+        "&c冷却时间: 0.2 秒",
         LoreBuilder.powerCharged(0, 2500),
-        "&e注意: 子弹在视觉上有点偏离",
-        "&e但你仍然击中了目标"
+        "&e注意: 子弹看上去偏了一点",
+        "&e但你仍然能命中目标"
     );
     // endregion
 
@@ -662,13 +662,12 @@ public final class Items {
     public static final SlimefunItemStack ENERGY_BLADE = new SlimefunItemStack(
         "ENERGY_BLADE",
         Material.DIAMOND_SWORD,
-        "&b电力刀刃",
+        "&b能量之刃",
         "",
-        "&7在某些圈子中称为 \"光剑\",",
-        "&7这把先进的剑使用",
-        "&7纯净的能量来切开活体组织",
+        "&7一把 \"光剑\",",
+        "&7使用纯净能量斩断一切",
         "",
-        "&9每发子弹消耗 5J 电力",
+        "&9每次命中消耗 5J",
         LoreBuilder.powerCharged(0, 2500),
         "",
         "&7在主手时:",
@@ -680,7 +679,7 @@ public final class Items {
         Material.IRON_AXE,
         "&6&l战斧",
         "",
-        "&7专为战斗设计的斧子. 没有烦人的冷却时间!",
+        "&7这把斧子为战斗设计! 没有烦人的攻击冷却了!",
         "",
         "&7在主手时:",
         "&2 9 攻击伤害",
@@ -691,9 +690,9 @@ public final class Items {
         Material.IRON_SWORD,
         "&6锇剑",
         "",
-        "&7重量级剑",
+        "&7拿在手中觉得很重",
         "",
-        "&7当在主手时:",
+        "&7在主手时:",
         "&2 10 攻击伤害",
         "&2 1.6 攻击速度"
     );
@@ -702,9 +701,9 @@ public final class Items {
         Material.HUSK_SPAWN_EGG,
         "&f假人刷怪蛋",
         "",
-        "&7右键生成一个假人; 当你击中他时",
-        "&7他会告诉你对他造成了多少伤害",
-        "&7右键摧毁他"
+        "&7右键生成一个假人",
+        "&7可以显示你对其造成的伤害",
+        "&7右键点击以摧毁假人"
     );
     // endregion
 

@@ -29,7 +29,7 @@ public class ChatListener implements Listener {
     private void sync(AsyncPlayerChatEvent e, String key) {
         HoverEvent event = new HoverEvent(
             HoverEvent.Action.SHOW_TEXT,
-            new Text("你正在使用放射性物质")
+            new Text("该消息使用无线电发送")
         );
 
         // don't wanna show the key
@@ -43,7 +43,7 @@ public class ChatListener implements Listener {
                     p.spigot().sendMessage(new ComponentBuilder()
                         .event(event)
                         .color(ChatColor.BLUE)
-                        .append("[放射信息] ")
+                        .append("[无线电消息] ")
                         .color(ChatColor.WHITE)
                         .append("<")
                         .append(e.getPlayer().getDisplayName())

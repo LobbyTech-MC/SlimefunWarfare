@@ -55,9 +55,9 @@ public final class Setup {
         new SlimefunItem(Categories.RESOURCES, Items.BORAX, RecipeType.NULL, fillNulls(
             new CustomItemStack(
                 Material.STONE,
-                "&f石头掉落",
+                "&f石头掉落物",
                 "",
-                "&7这个物品掉落自石头"
+                "&7该物品有几率在挖掘石头时掉落"
             )
         )).register(addon);
         new SlimefunItem(Categories.RESOURCES, Items.BORON, RecipeType.SMELTERY, fillNulls(Items.BORAX)).register(addon);
@@ -416,16 +416,16 @@ public final class Setup {
     }
 
     static void setupResearches() {
-        addResearch("Weapons of Mass Destruction", 70, Items.NUCLEAR_BOMB, Items.BOOMINATOR_9000);
-        addResearch("I am Iron Man", 70, Items.POWER_SUIT_HELMET, Items.POWER_SUIT_CHESTPLATE, Items.POWER_SUIT_LEGGINGS, Items.POWER_SUIT_BOOTS);
-        addResearch("Energy Weapons", 45, Items.ENERGY_BLADE, Items.ENERGY_RECTIFIER, Items.ENERGY_RIFLE);
-        addResearch("Alien Metals", 40, Items.OSMIUM_DUST, Items.OSMIUM_INGOT, Items.OSMIUM_SUPERALLOY);
-        addResearch("Rare Earths", 50, Items.MONAZITE, Items.LANTHANUM_INGOT, Items.NEODYMIUM_INGOT, Items.GADOLINIUM_INGOT, Items.TERBIUM_INGOT);
+        addResearch("Weapons of Mass Destruction", "大型破坏性武器", 70, Items.NUCLEAR_BOMB, Items.BOOMINATOR_9000);
+        addResearch("I am Iron Man", "我就是钢铁侠!", 70, Items.POWER_SUIT_HELMET, Items.POWER_SUIT_CHESTPLATE, Items.POWER_SUIT_LEGGINGS, Items.POWER_SUIT_BOOTS);
+        addResearch("Energy Weapons", "能量武器", 45, Items.ENERGY_BLADE, Items.ENERGY_RECTIFIER, Items.ENERGY_RIFLE);
+        addResearch("Alien Metals", "外星金属", 40, Items.OSMIUM_DUST, Items.OSMIUM_INGOT, Items.OSMIUM_SUPERALLOY);
+        addResearch("Rare Earths", "稀土元素", 50, Items.MONAZITE, Items.LANTHANUM_INGOT, Items.NEODYMIUM_INGOT, Items.GADOLINIUM_INGOT, Items.TERBIUM_INGOT);
     }
 
-    private static void addResearch(String name, int xp, SlimefunItemStack... items) {
+    private static void addResearch(String id, String name, int xp, SlimefunItemStack... items) {
         Research research = new Research(
-            AbstractAddon.createKey(name.toLowerCase(Locale.ROOT).replace(' ', '_')),
+            AbstractAddon.createKey(id.toLowerCase(Locale.ROOT).replace(' ', '_')),
             researchId++,
             name,
             xp

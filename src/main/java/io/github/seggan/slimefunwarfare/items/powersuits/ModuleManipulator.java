@@ -81,22 +81,22 @@ public class ModuleManipulator extends SlimefunItem {
 
         preset.addItem(INSTALL, new CustomItemStack(
             Material.REDSTONE,
-            "&f安装/卸载 模组"
+            "&f安装/卸载模块"
         ));
 
         preset.addItem(INSTALLED, new CustomItemStack(
             Material.BOOK,
-            "&f已安装模组 (点击刷新)"
+            "&f已安装模块 (点击刷新)"
         ));
 
         preset.addItem(SUIT_MARKER, new CustomItemStack(
             PlayerHead.getItemStack(Heads.SUIT_HELMET),
-            "&4这里放装备"
+            "&4在此处放入动力装甲"
         ), ChestMenuUtils.getEmptyClickHandler());
 
         preset.addItem(MODULE_MARKER, new CustomItemStack(
             PlayerHead.getItemStack(Heads.MODULE),
-            "&6这里放模组"
+            "&6在此处放入模块"
         ), ChestMenuUtils.getEmptyClickHandler());
     }
 

@@ -48,7 +48,7 @@ import io.github.thebusybiscuit.slimefun4.api.MinecraftVersion;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.updater.BlobBuildUpdater;
+import net.guizhanss.guizhanlibplugin.updater.GuizhanUpdater;
 import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.entity.Player;
@@ -68,7 +68,6 @@ import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodType;
 import java.lang.reflect.Method;
 import java.util.HashSet;
-import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
 import java.util.logging.Level;
@@ -84,18 +83,25 @@ public class SlimefunWarfare extends AbstractAddon implements Listener {
     private static Object townyFlightApi = null;
 
     public SlimefunWarfare() {
-        super("Seggan", "SlimefunWarfare", "master", "auto-update");
+        super("SlimefunGuguProject", "SlimefunWarfare", "master", "auto-update");
     }
 
     @Override
     public void enable() {
         instance = this;
 
-        if (getConfig().getBoolean("auto-update", true)) {
-            new BlobBuildUpdater(this, getFile(), "SlimefunWarfare").start();
+        if (!getServer().getPluginManager().isPluginEnabled("GuizhanLibPlugin")) {
+            getLogger().log(Level.SEVERE, "本插件需要 鬼斩前置库插件(GuizhanLibPlugin) 才能运行!");
+            getLogger().log(Level.SEVERE, "从此处下载: https://50l.cc/gzlib");
+            getServer().getPluginManager().disablePlugin(this);
+            return;
         }
 
         new Metrics(this, 9227);
+
+        if (getConfig().getBoolean("auto-update") && getDescription().getVersion().startsWith("Build")) {
+            GuizhanUpdater.start(this, getFile(), "SlimefunGuguProject", "SlimefunWarfare", "master");
+        }
 
         Events.registerListener(new BulletListener());
         Events.registerListener(new PyroListener());
@@ -121,7 +127,7 @@ public class SlimefunWarfare extends AbstractAddon implements Listener {
         Module.setup(this);
 
         if (getJavaVersion() < 16) {
-            log(Level.WARNING, "You are using a Java version that is less that 16! Please use Java 16 or above");
+            log(Level.WARNING, "你正在使用Java16以下的版本,请尽快使用Java16");
         }
 
         try {

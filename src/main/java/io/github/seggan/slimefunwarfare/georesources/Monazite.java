@@ -55,7 +55,7 @@ public class Monazite implements GEOResource {
     @Nonnull
     @Override
     public String getName() {
-        return "Monazite";
+        return "独居石";
     }
 
     @Nonnull
