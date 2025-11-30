@@ -9,6 +9,7 @@ import java.util.logging.Level;
 
 import javax.annotation.Nonnull;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.entity.Player;
@@ -144,7 +145,7 @@ public class SlimefunWarfare extends AbstractAddon implements Listener {
 
         if (getConfig().getBoolean("guns.autoshoot", true)) {
             // Gun autoshoot task
-            Scheduler.repeat(1, () -> {
+        	Bukkit.getScheduler().runTaskTimerAsynchronously(SlimefunWarfare.instance, () -> {
                 for (Player p : getServer().getOnlinePlayers()) {
                     if (p.isSneaking() && !p.isFlying()) {
                         ItemStack stack = p.getInventory().getItemInMainHand();
@@ -165,10 +166,10 @@ public class SlimefunWarfare extends AbstractAddon implements Listener {
                         gun.shoot(p, stack);
                     }
                 }
-            });
+            }, 1, 1);
         }
 
-        Scheduler.repeat(20, () -> {
+        Bukkit.getScheduler().runTaskTimerAsynchronously(SlimefunWarfare.instance, () -> {
             for (Player p : getServer().getOnlinePlayers()) {
                 PlayerInventory inv = p.getInventory();
 
@@ -191,7 +192,7 @@ public class SlimefunWarfare extends AbstractAddon implements Listener {
                     }
                 });
             }
-        });
+        }, 1, 20);
 
         if (getConfig().getBoolean("suits.flight-particles", true)) {
             Scheduler.repeat(4, () -> {

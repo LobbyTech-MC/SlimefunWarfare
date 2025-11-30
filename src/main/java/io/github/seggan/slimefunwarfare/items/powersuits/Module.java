@@ -49,7 +49,7 @@ public enum Module {
         Items.OSMIUM_INGOT, Items.MODULE_CASE, Items.OSMIUM_INGOT,
         new ItemStack(Material.MAGMA_CREAM), Items.OSMIUM_INGOT, new ItemStack(Material.MAGMA_CREAM)
     }, 1),
-    HYDRAULICS(4, "集成液压系统", PotionEffectType.INCREASE_DAMAGE, 1, ArmorPiece.CHEST, new ItemStack[]{
+    HYDRAULICS(4, "集成液压系统", PotionEffectType.STRENGTH, 1, ArmorPiece.CHEST, new ItemStack[]{
         SlimefunItems.REINFORCED_PLATE, Items.OSMIUM_SUPERALLOY, SlimefunItems.REINFORCED_PLATE,
         SlimefunItems.FUEL_BUCKET, Items.MODULE_CASE, SlimefunItems.FUEL_BUCKET,
         SlimefunItems.REINFORCED_PLATE, Items.OSMIUM_SUPERALLOY, SlimefunItems.REINFORCED_PLATE
@@ -59,7 +59,7 @@ public enum Module {
         SlimefunItems.STEEL_INGOT, Items.MODULE_CASE, SlimefunItems.STEEL_INGOT,
         SlimefunItems.STEEL_PLATE, Items.OSMIUM_SUPERALLOY, SlimefunItems.STEEL_PLATE
     }, 5, "&7这个模块可以帮助你", "&7跑得更快"),
-    ENERGY_SHIELD(6, "个人能量罩", PotionEffectType.DAMAGE_RESISTANCE, 2, ArmorPiece.CHEST, new ItemStack[]{
+    ENERGY_SHIELD(6, "个人能量罩", PotionEffectType.RESISTANCE, 2, ArmorPiece.CHEST, new ItemStack[]{
         Items.UNPATENTABLIUM, Items.OSMIUM_SUPERALLOY, Items.UNPATENTABLIUM,
         Items.POWER_SUIT_GENERATOR, Items.MODULE_CASE, Items.POWER_SUIT_GENERATOR,
         Items.ENERGY_RECTIFIER, Items.SEGGANESSON, Items.ENERGY_RECTIFIER
@@ -74,12 +74,12 @@ public enum Module {
         Items.SEGGANESSON, Items.MODULE_CASE, Items.SEGGANESSON,
         Items.OSMIUM_SUPERALLOY, Items.SEGGANESSON, Items.OSMIUM_SUPERALLOY
     }, 5, "&7提高动力装甲的能源生产速率"),
-    ELECTRONIC_SPRINGS(9, "电力弹簧", PotionEffectType.JUMP, 1, ArmorPiece.LEGS, new ItemStack[]{
+    ELECTRONIC_SPRINGS(9, "电力弹簧", PotionEffectType.JUMP_BOOST, 1, ArmorPiece.LEGS, new ItemStack[]{
         Items.REINFORCED_SLIMESTEEL, SlimefunItems.ADVANCED_CIRCUIT_BOARD, Items.REINFORCED_SLIMESTEEL,
         Items.REINFORCED_SLIMESTEEL, Items.MODULE_CASE, Items.REINFORCED_SLIMESTEEL,
         Items.REINFORCED_SLIMESTEEL, SlimefunItems.BASIC_CIRCUIT_BOARD, Items.REINFORCED_SLIMESTEEL
     }, 3),
-    MINI_PISTONS(10, "小型活塞", PotionEffectType.FAST_DIGGING, 3, ArmorPiece.CHEST, new ItemStack[]{
+    MINI_PISTONS(10, "小型活塞", PotionEffectType.HASTE, 3, ArmorPiece.CHEST, new ItemStack[]{
         Items.REINFORCED_SLIMESTEEL, new ItemStack(Material.PISTON), Items.REINFORCED_SLIMESTEEL,
         Items.REINFORCED_SLIMESTEEL, Items.MODULE_CASE, Items.REINFORCED_SLIMESTEEL,
         Items.REINFORCED_SLIMESTEEL, new ItemStack(Material.PISTON), Items.REINFORCED_SLIMESTEEL

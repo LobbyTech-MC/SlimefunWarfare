@@ -7,6 +7,7 @@ import io.github.seggan.slimefunwarfare.items.Bullet;
 import io.github.seggan.slimefunwarfare.lists.Categories;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.player.PlayerBackpack;
 import io.github.thebusybiscuit.slimefun4.api.player.PlayerProfile;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.attributes.DamageableItem;
@@ -149,7 +150,7 @@ public class Gun extends SlimefunItem implements DamageableItem {
             bullet.set((Bullet) item);
             ItemUtils.consumeItem(stack, true);
         } else if (item instanceof SlimefunBackpack) {
-            PlayerProfile.getBackpack(stack, backpack -> bullet.set(checkAndConsumeInv(backpack.getInventory())));
+        	PlayerBackpack.getAsync(stack, backpack -> bullet.set(checkAndConsumeInv(backpack.getInventory())), true);
         }
 
         return bullet.get();

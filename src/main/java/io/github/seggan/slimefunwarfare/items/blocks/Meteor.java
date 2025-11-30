@@ -30,7 +30,7 @@ public class Meteor extends SlimefunItem {
                     SlimefunItemStack stack = getItem().equals(Items.OSMIUM_METEOR) ? Items.OSMIUM_DUST : Items.SEGGANESSON;
 
                     drops.add(stack.clone());
-                    int fortune = itemStack.getEnchantmentLevel(Enchantment.LOOT_BONUS_BLOCKS);
+                    int fortune = itemStack.getEnchantmentLevel(Enchantment.LOOTING);
                     if (fortune == 0) return;
 
                     for (int i = 0; i < fortune; i++) {
