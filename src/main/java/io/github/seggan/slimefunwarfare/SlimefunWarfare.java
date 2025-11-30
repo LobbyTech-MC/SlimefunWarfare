@@ -48,12 +48,40 @@ import io.github.thebusybiscuit.slimefun4.api.MinecraftVersion;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.updater.BlobBuildUpdater;
+import org.bukkit.Material;
+import org.bukkit.Particle;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.PlayerInventory;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.persistence.PersistentDataContainer;
+import org.bukkit.persistence.PersistentDataType;
+import org.bukkit.potion.PotionEffect;
+
+import java.lang.invoke.MethodHandle;
+import java.lang.invoke.MethodHandles;
+import java.lang.invoke.MethodType;
+import java.lang.reflect.Method;
+import java.util.HashSet;
+import java.util.Optional;
+import java.util.Set;
+import java.util.UUID;
+import java.util.logging.Level;
+import javax.annotation.Nonnull;
 
 public class SlimefunWarfare extends AbstractAddon implements Listener {
 
     private static SlimefunWarfare instance = null;
     
     private static final Set<UUID> flying = new HashSet<>();
+
+    private static MethodHandle forceFlightMethod = null;
+    private static Object townyFlightApi = null;
 
     public SlimefunWarfare() {
         super("Seggan", "SlimefunWarfare", "master", "auto-update");
@@ -62,6 +90,10 @@ public class SlimefunWarfare extends AbstractAddon implements Listener {
     @Override
     public void enable() {
         instance = this;
+
+        if (getConfig().getBoolean("auto-update", true)) {
+            new BlobBuildUpdater(this, getFile(), "SlimefunWarfare").start();
+        }
 
         new Metrics(this, 9227);
 
@@ -90,6 +122,18 @@ public class SlimefunWarfare extends AbstractAddon implements Listener {
 
         if (getJavaVersion() < 16) {
             log(Level.WARNING, "You are using a Java version that is less that 16! Please use Java 16 or above");
+        }
+
+        try {
+            Class<?> clazz = Class.forName("com.gmail.llmdlio.townyflight.TownyFlightAPI");
+            Method getInstance = clazz.getDeclaredMethod("getInstance");
+            getInstance.setAccessible(true);
+            townyFlightApi = getInstance.invoke(null);
+
+            MethodHandles.Lookup lookup = MethodHandles.publicLookup();
+            MethodType type = MethodType.methodType(void.class, Player.class, boolean.class);
+            forceFlightMethod = lookup.findVirtual(clazz, "setForceAllowFlight", type);
+        } catch (ReflectiveOperationException ignored) {
         }
 
         if (getConfig().getBoolean("guns.autoshoot", true)) {
@@ -135,8 +179,9 @@ public class SlimefunWarfare extends AbstractAddon implements Listener {
                 Util.ifPowerSuit(boots, suit -> process(boots, PowerSuit.getModules(boots), suit, p), () -> {
                     UUID uuid = p.getUniqueId();
                     if (flying.contains(uuid)) {
-                        flying.remove(uuid);
+                        Scheduler.run(() -> flying.remove(uuid));
                         p.setAllowFlight(false);
+                        setForceAllowFlight(p, false);
                     }
                 });
             }
@@ -147,8 +192,8 @@ public class SlimefunWarfare extends AbstractAddon implements Listener {
                 for (UUID uuid : flying) {
                     Player p = getServer().getPlayer(uuid);
                     if (p == null) {
-                        flying.remove(uuid);
-                        return;
+                        Scheduler.run(() -> flying.remove(uuid));
+                        continue;
                     }
                     if (p.isFlying()) {
                         p.getWorld().spawnParticle(Particle.SOUL_FIRE_FLAME, p.getLocation().subtract(0, 1, 0), 20, 0.5, 0.5, 0.5);
@@ -162,9 +207,10 @@ public class SlimefunWarfare extends AbstractAddon implements Listener {
                 Class<?> orechid = Class.forName("me.profelements.dynatech.items.tools.Orechid");
                 Method method = orechid.getDeclaredMethod("registerOre", Material.class, SlimefunItemStack.class, float.class);
                 method.setAccessible(true);
-                method.invoke(null, Material.WAXED_WEATHERED_CUT_COPPER_STAIRS, Items.OSMIUM_METEOR, 100 - getConfig().getInt("space.segganesson-chance", 0, 100));
-                method.invoke(null, Material.WAXED_WEATHERED_CUT_COPPER_STAIRS, Items.SEGGANESSON_METEOR, getConfig().getInt("space.segganesson-chance", 0, 100));
-            } catch (ClassNotFoundException | NoSuchMethodException | InvocationTargetException | IllegalAccessException ignored) {
+                int segganessonChance = getConfig().getInt("space.segganesson-chance", 0, 100);
+                method.invoke(null, Material.WAXED_WEATHERED_CUT_COPPER_STAIRS, Items.OSMIUM_METEOR, 100 - segganessonChance);
+                method.invoke(null, Material.WAXED_WEATHERED_CUT_COPPER_STAIRS, Items.SEGGANESSON_METEOR, segganessonChance);
+            } catch (ReflectiveOperationException ignored) {
             }
         }
     }
@@ -181,6 +227,7 @@ public class SlimefunWarfare extends AbstractAddon implements Listener {
         if (p.getAllowFlight() && SlimefunItem.getByItem(boots) instanceof PowerSuit &&
             Sets.newHashSet(PowerSuit.getModules(boots)).contains(Module.MINI_JETS)) {
             flying.add(p.getUniqueId());
+            setForceAllowFlight(p, true);
         }
     }
 
@@ -204,11 +251,13 @@ public class SlimefunWarfare extends AbstractAddon implements Listener {
                     if (!p.getAllowFlight()) {
                         p.setAllowFlight(true);
                         flying.add(uuid);
+                        setForceAllowFlight(p, true);
                     }
                     if (p.isFlying()) {
                         if (suit.getItemCharge(stack) < module.getPower()) {
                             p.setAllowFlight(false);
                             flying.remove(uuid);
+                            setForceAllowFlight(p, false);
                         } else {
                             suit.removeItemCharge(stack, module.getPower());
                         }
@@ -225,6 +274,7 @@ public class SlimefunWarfare extends AbstractAddon implements Listener {
         if (suit.getType() == ArmorPiece.FEET && flying.contains(p.getUniqueId()) && !Sets.newHashSet(modules).contains(Module.MINI_JETS)) {
             p.setAllowFlight(false);
             flying.remove(uuid);
+            setForceAllowFlight(p, false);
         }
 
         suit.addItemCharge(stack, 5);
@@ -241,6 +291,16 @@ public class SlimefunWarfare extends AbstractAddon implements Listener {
             }
         }
         return Integer.parseInt(version);
+    }
+
+    private static void setForceAllowFlight(Player p, boolean allow) {
+        if (forceFlightMethod != null && townyFlightApi != null) {
+            try {
+                forceFlightMethod.invoke(townyFlightApi, p, allow);
+            } catch (Throwable e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public static SlimefunWarfare inst() {
